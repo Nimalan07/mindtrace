@@ -1,0 +1,89 @@
+{
+  "subject": "Physics",
+  "domain": "Classical Mechanics",
+  "version": "1.0.0",
+  "description": "Question-specific likelihood models for diagnostic follow-up probes. NOTE: Illustrative values for development; not scientifically or empirically calibrated.",
+  "questions": [
+    {
+      "question_id": "DQ_PHY_M009_1",
+      "question_text": "A massive truck collides head-on with a compact car. If both vehicles experience equal and opposite forces, why does the car sustain far greater acceleration and damage?",
+      "target_hypotheses": [
+        "PHY_M009",
+        "PHY_M002",
+        "unknown_or_other"
+      ],
+      "calibration_status": "illustrative",
+      "response_likelihoods": {
+        "PHY_M009": {
+          "supports_hypothesis": 0.85,
+          "weakens_hypothesis": 0.10,
+          "neutral_or_inconclusive": 0.05
+        },
+        "PHY_M002": {
+          "supports_hypothesis": 0.20,
+          "weakens_hypothesis": 0.70,
+          "neutral_or_inconclusive": 0.10
+        },
+        "unknown_or_other": {
+          "supports_hypothesis": 0.33,
+          "weakens_hypothesis": 0.33,
+          "neutral_or_inconclusive": 0.34
+        }
+      }
+    },
+    {
+      "question_id": "DQ_PHY_M001_1",
+      "question_text": "A ball is thrown vertically upward. At the exact instant it reaches its highest point before falling back down, what is its acceleration?",
+      "target_hypotheses": [
+        "PHY_M001",
+        "PHY_M002",
+        "unknown_or_other"
+      ],
+      "calibration_status": "illustrative",
+      "response_likelihoods": {
+        "PHY_M001": {
+          "supports_hypothesis": 0.80,
+          "weakens_hypothesis": 0.15,
+          "neutral_or_inconclusive": 0.05
+        },
+        "PHY_M002": {
+          "supports_hypothesis": 0.30,
+          "weakens_hypothesis": 0.60,
+          "neutral_or_inconclusive": 0.10
+        },
+        "unknown_or_other": {
+          "supports_hypothesis": 0.33,
+          "weakens_hypothesis": 0.33,
+          "neutral_or_inconclusive": 0.34
+        }
+      }
+    },
+    {
+      "question_id": "DQ_PHY_M008_1",
+      "question_text": "A 5 kg block is pulled horizontally with a 30 N force while a 10 N friction force opposes the motion. What is the acceleration of the block?",
+      "target_hypotheses": [
+        "PHY_M008",
+        "PHY_M005",
+        "unknown_or_other"
+      ],
+      "calibration_status": "illustrative",
+      "response_likelihoods": {
+        "PHY_M008": {
+          "supports_hypothesis": 0.85,
+          "weakens_hypothesis": 0.10,
+          "neutral_or_inconclusive": 0.05
+        },
+        "PHY_M005": {
+          "supports_hypothesis": 0.25,
+          "weakens_hypothesis": 0.65,
+          "neutral_or_inconclusive": 0.10
+        },
+        "unknown_or_other": {
+          "supports_hypothesis": 0.33,
+          "weakens_hypothesis": 0.33,
+          "neutral_or_inconclusive": 0.34
+        }
+      }
+    }
+  ]
+}
