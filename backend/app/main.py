@@ -1,4 +1,6 @@
 from contextlib import asynccontextmanager
+import json
+from pathlib import Path
 from typing import Any, Dict, List
 from fastapi import FastAPI, HTTPException, Query, status
 from fastapi.middleware.cors import CORSMiddleware
@@ -168,6 +170,54 @@ def get_concepts() -> ConceptListResponse:
     return service.get_concepts()
 
 
+# ---------------------------------------------------------------------------
+# Benchmark Diagnostic Tasks Catalog
+# ---------------------------------------------------------------------------
+
+_DIAGNOSTIC_TASKS_CACHE = None
+
+
+def _get_diagnostic_tasks() -> List[Dict[str, Any]]:
+    global _DIAGNOSTIC_TASKS_CACHE
+    if _DIAGNOSTIC_TASKS_CACHE is None:
+        path = Path("data/questions/diagnostic_rubrics.json")
+        if path.exists():
+            with open(path, "r", encoding="utf-8") as f:
+                _DIAGNOSTIC_TASKS_CACHE = json.load(f).get("diagnostic_tasks", [])
+        else:
+            _DIAGNOSTIC_TASKS_CACHE = []
+    return _DIAGNOSTIC_TASKS_CACHE
+
+
+@app.get(
+    "/api/diagnosis/questions",
+    tags=["Member 1: Diagnosis"],
+    status_code=status.HTTP_200_OK,
+)
+def get_diagnostic_questions() -> List[Dict[str, Any]]:
+    """Retrieve all benchmark diagnostic assessment tasks with structured rubrics."""
+    return _get_diagnostic_tasks()
+
+
+@app.get(
+    "/api/diagnosis/questions/{concept_id}",
+    tags=["Member 1: Diagnosis"],
+    status_code=status.HTTP_200_OK,
+)
+def get_diagnostic_question_for_concept(concept_id: str) -> Dict[str, Any]:
+    """Retrieve the optimal benchmark diagnostic task and rubric for a given concept."""
+    tasks = _get_diagnostic_tasks()
+    for task in tasks:
+        if task.get("concept_id") == concept_id:
+            return task
+    for task in tasks:
+        if concept_id in task.get("relevant_concept_ids", []):
+            return task
+    if tasks:
+        return tasks[0]
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No diagnostic questions available.")
+
+
 @app.get(
     "/api/diagnosis/session/{session_id}/export",
     response_model=Member2DiagnosisExport,
@@ -316,3 +366,93 @@ def get_teacher_analytics() -> TeacherAnalyticsResponse:
     """Retrieve classroom-level analytics, concept heatmaps, and at-risk alerts."""
     adapt_service = get_adaptive_service()
     return adapt_service.get_teacher_analytics()
+
+
+# ===========================================================================
+# Phase 5 Client Compatibility Route Aliases & Direct Endpoints
+# ===========================================================================
+
+@app.post(
+    "/api/adaptive/next-question",
+    response_model=AdaptiveNextQuestionResponse,
+    status_code=status.HTTP_200_OK,
+    tags=["Member 2: Adaptive Assessment"],
+)
+def next_question_alias(request: AdaptiveNextQuestionRequest) -> AdaptiveNextQuestionResponse:
+    return get_next_question(request)
+
+
+@app.post(
+    "/api/adaptive/submit-answer",
+    response_model=AssessmentEvaluation,
+    status_code=status.HTTP_200_OK,
+    tags=["Member 2: Adaptive Assessment"],
+)
+def submit_answer_alias(request: AssessmentAnswerRequest) -> AssessmentEvaluation:
+    return submit_assessment(request)
+
+
+@app.get(
+    "/api/adaptive/learner/{student_id}",
+    response_model=StudentAnalyticsResponse,
+    status_code=status.HTTP_200_OK,
+    tags=["Analytics Dashboards"],
+)
+def get_learner_alias(student_id: str) -> StudentAnalyticsResponse:
+    return get_student_analytics(student_id)
+
+
+@app.get(
+    "/api/adaptive/due-reviews/{student_id}",
+    response_model=List[SpacedRepetitionCard],
+    status_code=status.HTTP_200_OK,
+    tags=["Member 2: Spaced Repetition"],
+)
+def due_reviews_alias(student_id: str) -> List[SpacedRepetitionCard]:
+    return get_due_spaced_cards(student_id)
+
+
+@app.post(
+    "/api/adaptive/spaced-review",
+    response_model=SpacedRepetitionCard,
+    status_code=status.HTTP_200_OK,
+    tags=["Member 2: Spaced Repetition"],
+)
+def spaced_review_alias(request: SpacedReviewRequest) -> SpacedRepetitionCard:
+    return record_spaced_review(request)
+
+
+@app.get(
+    "/api/dashboard/teacher/cohort",
+    response_model=TeacherAnalyticsResponse,
+    status_code=status.HTTP_200_OK,
+    tags=["Analytics Dashboards"],
+)
+def teacher_cohort_alias() -> TeacherAnalyticsResponse:
+    return get_teacher_analytics()
+
+
+@app.get(
+    "/api/adaptive/intervention/{student_id}/{concept_id}",
+    response_model=InterventionPlan,
+    status_code=status.HTTP_200_OK,
+    tags=["Member 2: Personalized Intervention"],
+)
+def get_intervention_for_concept(student_id: str, concept_id: str) -> InterventionPlan:
+    """Generate or retrieve a targeted intervention plan for a student concept deficit."""
+    adapt_service = get_adaptive_service()
+    export = Member2DiagnosisExport(
+        student_id=student_id,
+        session_id=f"auto_{student_id}_{concept_id}",
+        question_id=f"DEFICIT_{concept_id.upper()}",
+        relevant_concept_ids=[concept_id],
+        first_error_concept_id=concept_id,
+        first_error_step_order=1,
+        identified_error_category="conceptual_error",
+        candidate_misconception_ids=[],
+        posterior_hypotheses={"unknown_or_other": 1.0},
+        diagnostic_status="collecting_evidence",
+        prerequisite_concepts_to_review=adapt_service.concept_graph.get_direct_prerequisites(concept_id),
+        evidence_confidence=0.75,
+    )
+    return adapt_service.generate_intervention(export)

@@ -1,0 +1,229 @@
+{
+  "subject": "Physics",
+  "domain": "Forces and Motion",
+  "version": "1.0.0",
+  "diagnostic_tasks": [
+    {
+      "question_id": "DIAG_Q_NETF_01",
+      "concept_id": "net_force",
+      "concept_name": "Net Force",
+      "title": "Opposing Horizontal Forces on a Mass",
+      "question_text": "A 5 kg block on a frictionless table experiences a 30 N force pulling to the right and a 10 N force pulling to the left. Determine the net force acting on the block and find its resulting acceleration. Show all reasoning steps.",
+      "relevant_concept_ids": ["net_force", "acceleration", "force", "mass", "newton_second_law"],
+      "rubric": {
+        "question_id": "DIAG_Q_NETF_01",
+        "question_text": "A 5 kg block on a frictionless table experiences a 30 N force pulling to the right and a 10 N force pulling to the left. Determine the net force acting on the block and find its resulting acceleration.",
+        "expected_steps": [
+          {
+            "step_id": "step_1",
+            "expected_concept_ids": ["mass"],
+            "expected_principle": "Identify mass of the block: m = 5 kg",
+            "acceptable_reasoning": ["Mass is 5 kg.", "Given mass m = 5 kg."],
+            "acceptable_formulas": ["m = 5 kg"],
+            "validation_criteria": {}
+          },
+          {
+            "step_id": "step_2",
+            "expected_concept_ids": ["net_force", "force"],
+            "expected_principle": "Subtract opposing collinear forces: F_net = 30 N - 10 N = 20 N to the right",
+            "acceptable_reasoning": ["Net force is 30 - 10 = 20 N rightward.", "Subtract left force from right force to get net force = 20 N."],
+            "acceptable_formulas": ["F_net = F_right - F_left", "F_net = 30 - 10 = 20 N"],
+            "validation_criteria": {}
+          },
+          {
+            "step_id": "step_3",
+            "expected_concept_ids": ["acceleration", "newton_second_law"],
+            "expected_principle": "Apply Newton's second law: a = F_net / m = 20 N / 5 kg = 4 m/s² to the right",
+            "acceptable_reasoning": ["Acceleration is 20 / 5 = 4 m/s².", "Using a = F_net / m, a = 4 m/s²."],
+            "acceptable_formulas": ["a = F_net / m", "a = 20 / 5 = 4 m/s^2"],
+            "validation_criteria": {}
+          }
+        ],
+        "accepted_alternative_methods": [],
+        "expected_answer": "Net force is 20 N to the right; acceleration is 4 m/s² to the right.",
+        "relevant_concept_ids": ["net_force", "acceleration", "force", "mass", "newton_second_law"]
+      }
+    },
+    {
+      "question_id": "DIAG_Q_ACCEL_01",
+      "concept_id": "acceleration",
+      "concept_name": "Acceleration",
+      "title": "Acceleration Under Combined Forces",
+      "question_text": "A 10 kg cart initially at rest has two horizontal forces acting on it: 50 N east and 20 N west. Calculate its acceleration. If someone claims the acceleration is (50 + 20) / 10 = 7 m/s², explain whether that reasoning is sound.",
+      "relevant_concept_ids": ["acceleration", "net_force", "mass", "newton_second_law"],
+      "rubric": {
+        "question_id": "DIAG_Q_ACCEL_01",
+        "question_text": "A 10 kg cart initially at rest has two horizontal forces acting on it: 50 N east and 20 N west. Calculate its acceleration.",
+        "expected_steps": [
+          {
+            "step_id": "step_1",
+            "expected_concept_ids": ["mass"],
+            "expected_principle": "Identify mass m = 10 kg",
+            "acceptable_reasoning": ["Mass is 10 kg."],
+            "acceptable_formulas": ["m = 10 kg"],
+            "validation_criteria": {}
+          },
+          {
+            "step_id": "step_2",
+            "expected_concept_ids": ["net_force"],
+            "expected_principle": "Opposing vectors must be subtracted: F_net = 50 - 20 = 30 N east",
+            "acceptable_reasoning": ["Net force is 50 - 20 = 30 N.", "Forces in opposite directions subtract."],
+            "acceptable_formulas": ["F_net = 50 - 20 = 30 N"],
+            "validation_criteria": {}
+          },
+          {
+            "step_id": "step_3",
+            "expected_concept_ids": ["acceleration", "newton_second_law"],
+            "expected_principle": "Calculate acceleration a = F_net / m = 30 / 10 = 3 m/s² east",
+            "acceptable_reasoning": ["Acceleration is 3 m/s² east.", "a = 30 / 10 = 3 m/s²."],
+            "acceptable_formulas": ["a = F / m"],
+            "validation_criteria": {}
+          }
+        ],
+        "accepted_alternative_methods": [],
+        "expected_answer": "Acceleration is 3 m/s² to the east. Adding the forces to get 7 m/s² is incorrect because opposing force vectors must be subtracted.",
+        "relevant_concept_ids": ["acceleration", "net_force", "mass", "newton_second_law"]
+      }
+    },
+    {
+      "question_id": "DIAG_Q_N3L_01",
+      "concept_id": "newton_third_law",
+      "concept_name": "Newton's Third Law",
+      "title": "Truck and Car Collision Forces",
+      "question_text": "A massive 3000 kg truck collides head-on with a 1000 kg compact car. Compare the magnitude of the force exerted by the truck on the car with the magnitude of the force exerted by the car on the truck during the collision. Explain why the car experiences greater acceleration.",
+      "relevant_concept_ids": ["newton_third_law", "force", "mass", "acceleration"],
+      "rubric": {
+        "question_id": "DIAG_Q_N3L_01",
+        "question_text": "Compare the collision forces between a 3000 kg truck and a 1000 kg car and explain their accelerations.",
+        "expected_steps": [
+          {
+            "step_id": "step_1",
+            "expected_concept_ids": ["newton_third_law", "force"],
+            "expected_principle": "Newton's third law requires collision interaction forces to be exactly equal in magnitude and opposite in direction: |F_truck_on_car| = |F_car_on_truck|",
+            "acceptable_reasoning": ["The two forces are equal in magnitude by Newton's third law.", "Forces form an action-reaction pair and are identical in size."],
+            "acceptable_formulas": ["F_12 = -F_21"],
+            "validation_criteria": {}
+          },
+          {
+            "step_id": "step_2",
+            "expected_concept_ids": ["mass", "acceleration", "newton_second_law"],
+            "expected_principle": "Since a = F / m, the vehicle with the smaller mass (car) experiences a substantially larger acceleration given the identical contact force magnitude.",
+            "acceptable_reasoning": ["The car has less mass so a = F/m is greater for the car.", "Smaller mass experiences larger acceleration for the same force."],
+            "acceptable_formulas": ["a = F / m"],
+            "validation_criteria": {}
+          }
+        ],
+        "accepted_alternative_methods": [],
+        "expected_answer": "The force exerted by the truck on the car is exactly equal in magnitude to the force exerted by the car on the truck. The car undergoes greater acceleration because its mass is smaller (a = F/m).",
+        "relevant_concept_ids": ["newton_third_law", "force", "mass", "acceleration"]
+      }
+    },
+    {
+      "question_id": "DIAG_Q_VEL_01",
+      "concept_id": "velocity",
+      "concept_name": "Velocity",
+      "title": "Uniform Circular Motion Velocity and Acceleration",
+      "question_text": "A satellite orbits Earth at a constant speed of 7,000 m/s in a circular path. Is its velocity constant? Is it accelerating? Explain your reasoning using vector principles.",
+      "relevant_concept_ids": ["velocity", "speed", "acceleration", "circular_motion"],
+      "rubric": {
+        "question_id": "DIAG_Q_VEL_01",
+        "question_text": "A satellite moves at constant speed in a circular orbit. Is its velocity constant and is it accelerating?",
+        "expected_steps": [
+          {
+            "step_id": "step_1",
+            "expected_concept_ids": ["velocity", "speed"],
+            "expected_principle": "Velocity is a vector consisting of both magnitude (speed) and direction.",
+            "acceptable_reasoning": ["Velocity is a vector having direction and magnitude.", "Velocity includes direction."],
+            "acceptable_formulas": [],
+            "validation_criteria": {}
+          },
+          {
+            "step_id": "step_2",
+            "expected_concept_ids": ["velocity"],
+            "expected_principle": "Because the satellite travels in a circle, its direction of motion is continuously changing, so its velocity is NOT constant.",
+            "acceptable_reasoning": ["Direction changes so velocity changes.", "Velocity is not constant because direction changes."],
+            "acceptable_formulas": [],
+            "validation_criteria": {}
+          },
+          {
+            "step_id": "step_3",
+            "expected_concept_ids": ["acceleration"],
+            "expected_principle": "Acceleration is defined as the time rate of change of velocity (a = dv/dt). Since velocity is changing in direction, the satellite is accelerating toward the center.",
+            "acceptable_reasoning": ["Rate of change of velocity is acceleration so it is accelerating.", "Centripetal acceleration exists."],
+            "acceptable_formulas": ["a = v^2 / r"],
+            "validation_criteria": {}
+          }
+        ],
+        "accepted_alternative_methods": [],
+        "expected_answer": "Velocity is NOT constant because direction is continuously changing. The satellite IS accelerating because acceleration is the rate of change of velocity.",
+        "relevant_concept_ids": ["velocity", "speed", "acceleration", "circular_motion"]
+      }
+    },
+    {
+      "question_id": "DIAG_Q_INERTIA_01",
+      "concept_id": "inertia",
+      "concept_name": "Inertia",
+      "title": "Motion in Deep Space",
+      "question_text": "A spacecraft in deep interstellar space far from any stars or planets turns off its engines. What happens to its motion? Does it require continuous engine thrust to maintain a constant forward velocity? Explain using Newton's First Law.",
+      "relevant_concept_ids": ["inertia", "newton_first_law", "velocity", "force"],
+      "rubric": {
+        "question_id": "DIAG_Q_INERTIA_01",
+        "question_text": "What happens to a spacecraft's motion in deep space when engines are turned off?",
+        "expected_steps": [
+          {
+            "step_id": "step_1",
+            "expected_concept_ids": ["net_force"],
+            "expected_principle": "With engines off in deep space, net external force is zero (F_net = 0).",
+            "acceptable_reasoning": ["Net force is zero.", "No external forces act on it."],
+            "acceptable_formulas": ["F_net = 0"],
+            "validation_criteria": {}
+          },
+          {
+            "step_id": "step_2",
+            "expected_concept_ids": ["inertia", "newton_first_law", "velocity"],
+            "expected_principle": "By Newton's first law (law of inertia), an object with zero net force continues to move at constant velocity in a straight line indefinitely without needing ongoing propulsion.",
+            "acceptable_reasoning": ["It keeps moving at constant velocity due to inertia.", "Newton's first law states it maintains constant velocity without thrust."],
+            "acceptable_formulas": [],
+            "validation_criteria": {}
+          }
+        ],
+        "accepted_alternative_methods": [],
+        "expected_answer": "The spacecraft continues moving at constant velocity in a straight line. No continuous force or engine thrust is needed to maintain motion.",
+        "relevant_concept_ids": ["inertia", "newton_first_law", "velocity", "force"]
+      }
+    },
+    {
+      "question_id": "DIAG_Q_GRAV_01",
+      "concept_id": "gravity",
+      "concept_name": "Gravity",
+      "title": "Free Fall and Gravitational Acceleration",
+      "question_text": "In a vacuum chamber where air resistance is completely eliminated, a heavy 10 kg steel sphere and a light 0.01 kg feather are dropped simultaneously from the same height. Compare their accelerations and explain why both hit the ground at the same time.",
+      "relevant_concept_ids": ["gravity", "acceleration", "mass", "free_fall", "newton_second_law"],
+      "rubric": {
+        "question_id": "DIAG_Q_GRAV_01",
+        "question_text": "Compare the accelerations of a heavy sphere and feather in vacuum and explain why they fall together.",
+        "expected_steps": [
+          {
+            "step_id": "step_1",
+            "expected_concept_ids": ["gravity", "mass"],
+            "expected_principle": "The gravitational force on an object is proportional to its mass: F_g = m * g. The heavy sphere experiences a much larger gravitational force.",
+            "acceptable_reasoning": ["Gravitational force is F = mg.", "Heavy object has larger force acting on it."],
+            "acceptable_formulas": ["F_g = m * g"],
+            "validation_criteria": {}
+          },
+          {
+            "step_id": "step_2",
+            "expected_concept_ids": ["acceleration", "newton_second_law"],
+            "expected_principle": "By Newton's second law, acceleration a = F_net / m = (m * g) / m = g. Mass cancels out, meaning acceleration is independent of object mass in free fall.",
+            "acceptable_reasoning": ["Acceleration a = F/m = (mg)/m = g.", "Mass cancels out so acceleration is identical."],
+            "acceptable_formulas": ["a = F / m = (m*g) / m = g"],
+            "validation_criteria": {}
+          }
+        ],
+        "accepted_alternative_methods": [],
+        "expected_answer": "Both objects experience the exact same downward acceleration g = 9.8 m/s² because the greater gravitational force on the heavier object is exactly counterbalanced by its greater inertia (mass cancels out in a = mg/m).",
+        "relevant_concept_ids": ["gravity", "acceleration", "mass", "free_fall", "newton_second_law"]
+      }
+    }
+  ]
+}

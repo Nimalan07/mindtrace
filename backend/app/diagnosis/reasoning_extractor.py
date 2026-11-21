@@ -48,6 +48,99 @@ class MockLLMProvider(LLMProvider):
         return self.default_response
 
 
+class SmartOfflineLLMProvider(MockLLMProvider):
+    """
+    Intelligent offline provider for demonstration and decoupled testing.
+    Uses canned responses where available; otherwise dynamically parses student
+    sentences into structured reasoning steps conforming to the ConceptGraph.
+    """
+
+    def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
+        for keyword, response in self.canned_responses.items():
+            if keyword in prompt:
+                return response
+
+        match_qid = re.search(r"Question ID:\s*([^\n]+)", prompt)
+        qid = match_qid.group(1).strip() if match_qid else "Q001"
+
+        match_resp = re.search(
+            r'Student Response:\s*"([\s\S]*?)"\s*\n',
+            prompt,
+        )
+        if match_resp:
+            resp_text = match_resp.group(1).strip()
+        else:
+            match_fallback = re.search(r"Student Response:\s*([^\n]+)", prompt)
+            resp_text = (
+                match_fallback.group(1).strip().strip('"').strip("'")
+                if match_fallback
+                else ""
+            )
+
+        match_concepts = re.search(
+            r"(?:Relevant Concept Context|Available Concepts):\s*([^\n]+)",
+            prompt,
+        )
+        available_concepts = (
+            [c.strip() for c in match_concepts.group(1).split(",") if c.strip()]
+            if match_concepts
+            else ["net_force", "acceleration", "mass"]
+        )
+
+        raw_parts = [p.strip() for p in resp_text.split(".") if len(p.strip()) > 3]
+        sentences = [p for p in raw_parts if p in resp_text]
+        if not sentences and resp_text:
+            sentences = [resp_text]
+        if not sentences:
+            return self.default_response
+
+        steps = []
+        for i, sentence in enumerate(sentences, 1):
+            matched_cids = [
+                cid
+                for cid in available_concepts
+                if cid.replace("_", " ") in sentence.lower() or cid in sentence.lower()
+            ]
+            if not matched_cids and available_concepts:
+                matched_cids = [available_concepts[min(i - 1, len(available_concepts) - 1)]]
+
+            formulas = [
+                f.strip()
+                for f in re.findall(r"[A-Za-z_0-9\s]+=[A-Za-z_0-9\s\+\-\/\*]+", sentence)
+                if len(f.strip()) > 3
+            ]
+
+            steps.append({
+                "step_id": f"step_{i}",
+                "order": i,
+                "original_text": sentence,
+                "claim": sentence,
+                "reasoning_type": (
+                    "mathematical_operation"
+                    if any(c in sentence for c in ["=", "+", "-", "/", "*"])
+                    else "conceptual_claim"
+                ),
+                "concept_ids": matched_cids,
+                "formulas": formulas,
+                "inference": sentence,
+                "evidence_text": sentence,
+                "uncertainty_flag": False,
+            })
+
+        identified = list(dict.fromkeys([cid for st in steps for cid in st["concept_ids"]]))
+        if not identified and available_concepts:
+            identified = [available_concepts[0]]
+
+        return json.dumps({
+            "question_id": qid,
+            "original_student_response": resp_text,
+            "reasoning_steps": steps,
+            "identified_concepts": identified,
+            "extraction_status": "complete",
+            "ambiguity_notes": [],
+        })
+
+
 class FailingLLMProvider(LLMProvider):
     """Mock provider that simulates API timeouts or network failure."""
 

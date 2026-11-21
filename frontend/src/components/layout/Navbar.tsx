@@ -17,6 +17,7 @@ export function Navbar() {
     if (pathname.includes("/student/dashboard")) return "Student Learning Intelligence Dashboard";
     if (pathname.includes("/student/assessment")) return "Diagnostic Assessment";
     if (pathname.includes("/student/learning")) return "Adaptive Learning & Interventions";
+    if (pathname.includes("/student/reviews")) return "Spaced Repetition & Retention Queue";
     if (pathname.includes("/teacher/dashboard")) return "Educator Diagnostic Dashboard";
     return "MINDTRACE Portal";
   };

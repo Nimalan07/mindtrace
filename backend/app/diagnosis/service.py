@@ -16,6 +16,7 @@ from backend.app.diagnosis.reasoning_extractor import (
     LLMProvider,
     MockLLMProvider,
     ReasoningExtractor,
+    SmartOfflineLLMProvider,
 )
 from backend.app.diagnosis.response_interpreter import (
     MockResponseInterpreter,
@@ -87,7 +88,7 @@ class DiagnosisService:
         cg = ConceptGraph.load_from_json(concepts_path)
         ml = MisconceptionLibrary.load_from_json(misconceptions_path, concept_graph=cg)
         qs = ActiveQuestionSelector.load_from_json(likelihoods_path)
-        re = ReasoningExtractor(provider=llm_provider or MockLLMProvider(), concept_graph=cg)
+        re = ReasoningExtractor(provider=llm_provider or SmartOfflineLLMProvider(), concept_graph=cg)
         ed = FirstErrorDetector(misconception_library=ml, concept_graph=cg)
         repo = SQLiteSessionRepository(db_path=chosen_db)
 

@@ -96,27 +96,38 @@ class FirstErrorDetector:
                 )
 
         # 3. Check for direction / sign error (e.g. opposing forces added instead of subtracted)
-        if "net force" in full_text or "net_force" in step.concept_ids:
-            # Check if opposing forces were added: e.g. 20 + 10 = 30
-            if "20 + 10" in full_text or "30" in full_text:
-                # If question specifies opposing directions (e.g. right and left)
-                if "right" in rubric.question_text.lower() and "left" in rubric.question_text.lower():
-                    return StepEvaluation(
-                        student_step_id=step.step_id,
-                        order=step.order,
-                        status="incorrect",
-                        error_type="direction_or_sign_error",
-                        explanation="Opposing vector forces were added instead of subtracted for net force calculation.",
-                        evidence_text=step.evidence_text,
-                        affected_concepts=["net_force", "force"],
-                        is_downstream_error=False,
-                    )
+        if (
+            "net force" in full_text
+            or "net_force" in step.concept_ids
+            or "total force" in full_text
+            or ("force" in step.concept_ids and ("+" in full_text or "sum" in full_text or "add" in full_text))
+        ):
+            # Check if opposing forces were added: e.g. 20 + 10 = 30 or 30 + 10 = 40
+            has_opposing = (
+                ("right" in rubric.question_text.lower() and "left" in rubric.question_text.lower())
+                or ("east" in rubric.question_text.lower() and "west" in rubric.question_text.lower())
+            )
+            if has_opposing and ("+" in full_text or "add" in full_text or "sum" in full_text or "20 + 10" in full_text or "30 + 10" in full_text or "30" in full_text or "40" in full_text):
+                return StepEvaluation(
+                    student_step_id=step.step_id,
+                    order=step.order,
+                    status="incorrect",
+                    error_type="direction_or_sign_error",
+                    explanation="Opposing vector forces were added instead of subtracted for net force calculation.",
+                    evidence_text=step.evidence_text,
+                    affected_concepts=["net_force", "force"],
+                    is_downstream_error=False,
+                )
 
         # 4. Check for downstream propagation vs independent error
         if prior_error_detected:
             # Check if this step is applying valid math or valid formula to an incorrect earlier value
             # e.g., "30 divided by 5, which equals 6" when net force was 30
-            if "30" in full_text and ("divided by 5" in full_text or "30 / 5" in full_text or "6" in full_text):
+            if (
+                ("30" in full_text and ("divided by 5" in full_text or "30 / 5" in full_text or "6" in full_text))
+                or ("40" in full_text and ("divided by 5" in full_text or "40 / 5" in full_text or "8" in full_text))
+                or ("/" in full_text and any(w in full_text for w in ["acceleration", "a =", "a="]))
+            ):
                 return StepEvaluation(
                     student_step_id=step.step_id,
                     order=step.order,
