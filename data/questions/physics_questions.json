@@ -1,0 +1,719 @@
+{
+  "subject": "Physics",
+  "domain": "Classical Mechanics",
+  "version": "1.0.0",
+  "description": "Comprehensive diagnostic question bank for adaptive assessment and knowledge repair.",
+  "questions": [
+    {
+      "id": "Q_VEL_01",
+      "title": "Velocity Direction in Circular Motion",
+      "prompt": "An object moves in a circle at a constant speed of 10 m/s. Does its velocity remain constant?",
+      "concept_id": "velocity",
+      "secondary_concept_ids": ["speed", "acceleration"],
+      "difficulty": "easy",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) Yes, because the speed is constant at 10 m/s.",
+        "B) No, because the direction of motion is continuously changing.",
+        "C) Yes, because there is no net force.",
+        "D) No, because speed increases around each turn."
+      ],
+      "correct_answer": "B",
+      "rubric": "Velocity is a vector possessing both magnitude (speed) and direction. Even if speed is constant, changing direction means velocity is changing.",
+      "hints": [
+        "Remember the definition of a vector quantity.",
+        "Does velocity include direction as well as magnitude?"
+      ],
+      "prerequisites": [],
+      "target_misconceptions": ["PHY_M002"]
+    },
+    {
+      "id": "Q_VEL_02",
+      "title": "Average Velocity vs Average Speed",
+      "prompt": "A runner completes one full lap around a 400 m circular track in 50 seconds, returning to the starting line. What is the runner's average velocity?",
+      "concept_id": "velocity",
+      "secondary_concept_ids": ["speed", "displacement", "time_interval"],
+      "difficulty": "medium",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) 8.0 m/s",
+        "B) 0 m/s",
+        "C) 4.0 m/s",
+        "D) 16.0 m/s"
+      ],
+      "correct_answer": "B",
+      "rubric": "Average velocity is total displacement divided by total time. Returning to the starting point gives a displacement of 0 m, hence average velocity is 0 m/s.",
+      "hints": [
+        "What is the total displacement when returning to the starting point?",
+        "Velocity depends on displacement, not distance."
+      ],
+      "prerequisites": ["displacement", "time_interval"],
+      "target_misconceptions": []
+    },
+    {
+      "id": "Q_SPD_01",
+      "title": "Speed Calculation Along Path",
+      "prompt": "In the same 400 m track lap completed in 50 seconds, what was the runner's average speed?",
+      "concept_id": "speed",
+      "secondary_concept_ids": ["time_interval"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "8",
+      "rubric": "Average speed = total distance / total time = 400 m / 50 s = 8 m/s.",
+      "hints": [
+        "Speed is a scalar equal to distance travelled divided by time elapsed.",
+        "Divide 400 meters by 50 seconds."
+      ],
+      "prerequisites": ["velocity"],
+      "target_misconceptions": []
+    },
+    {
+      "id": "Q_DISP_01",
+      "title": "Displacement Vector",
+      "prompt": "A student walks 30 meters East and then 40 meters North. What is the magnitude of the student's net displacement?",
+      "concept_id": "displacement",
+      "secondary_concept_ids": ["velocity"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "50",
+      "rubric": "Displacement is the vector from start to finish. Using Pythagoras: sqrt(30^2 + 40^2) = sqrt(900 + 1600) = sqrt(2500) = 50 m.",
+      "hints": [
+        "East and North form a right-angled triangle.",
+        "Apply the Pythagorean theorem: sqrt(30^2 + 40^2)."
+      ],
+      "prerequisites": [],
+      "target_misconceptions": []
+    },
+    {
+      "id": "Q_ACC_01",
+      "title": "Acceleration at Projectile Apex",
+      "prompt": "A ball is thrown straight up into the air. At the exact highest point of its trajectory, what is its acceleration?",
+      "concept_id": "acceleration",
+      "secondary_concept_ids": ["velocity", "gravitational_field_strength"],
+      "difficulty": "medium",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) 0 m/s², because the ball is momentarily motionless.",
+        "B) 9.8 m/s² downward, because gravity acts continuously.",
+        "C) 9.8 m/s² upward, because it was launched upward.",
+        "D) Undefined, because velocity is changing signs."
+      ],
+      "correct_answer": "B",
+      "rubric": "Even though instantaneous velocity is zero at the peak, gravity continues to exert a downward force of mg, producing a constant downward acceleration of 9.8 m/s².",
+      "hints": [
+        "Does gravity turn off when an object reaches its peak?",
+        "Acceleration is the rate of change of velocity, not the velocity itself."
+      ],
+      "prerequisites": ["velocity", "time_interval"],
+      "target_misconceptions": ["PHY_M001"]
+    },
+    {
+      "id": "Q_ACC_02",
+      "title": "Negative Acceleration and Deceleration",
+      "prompt": "A car is moving in the negative x-direction and slowing down. What is the sign of its acceleration?",
+      "concept_id": "acceleration",
+      "secondary_concept_ids": ["velocity"],
+      "difficulty": "medium",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) Negative, because the car is moving in the negative direction.",
+        "B) Negative, because slowing down always means negative acceleration.",
+        "C) Positive, because the acceleration opposes the negative velocity to slow it down.",
+        "D) Zero, because slowing down means losing acceleration."
+      ],
+      "correct_answer": "C",
+      "rubric": "If velocity is negative and the object slows down, the change in velocity delta_v is positive, so acceleration is positive.",
+      "hints": [
+        "If velocity is negative (say -20 m/s to -10 m/s), what is delta_v = (-10) - (-20)?",
+        "Acceleration direction opposes velocity when slowing down."
+      ],
+      "prerequisites": ["velocity", "time_interval"],
+      "target_misconceptions": ["PHY_M002"]
+    },
+    {
+      "id": "Q_ACC_03",
+      "title": "Linear Acceleration Calculation",
+      "prompt": "A car accelerates uniformly from 10 m/s to 30 m/s along a straight road in 5 seconds. What is its acceleration in m/s²?",
+      "concept_id": "acceleration",
+      "secondary_concept_ids": ["velocity", "time_interval"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "4",
+      "rubric": "a = (v_final - v_initial) / t = (30 - 10) / 5 = 20 / 5 = 4 m/s².",
+      "hints": [
+        "Use the formula a = (v - u) / t.",
+        "Find the change in velocity first: 30 - 10 = 20 m/s."
+      ],
+      "prerequisites": ["velocity", "time_interval"],
+      "target_misconceptions": []
+    },
+    {
+      "id": "Q_MASS_01",
+      "title": "Mass vs Weight on the Moon",
+      "prompt": "An astronaut has a mass of 72 kg on Earth. The Moon's gravitational field strength is about 1/6th of Earth's. What is the astronaut's mass on the Moon?",
+      "concept_id": "mass",
+      "secondary_concept_ids": ["force", "gravitational_field_strength"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "72",
+      "rubric": "Mass is the intrinsic measure of an object's inertia and amount of matter, remaining constant regardless of gravitational field strength. Weight changes, but mass is 72 kg.",
+      "hints": [
+        "Distinguish between mass (amount of matter) and weight (gravitational force).",
+        "Does mass depend on the local gravitational field?"
+      ],
+      "prerequisites": [],
+      "target_misconceptions": ["PHY_M004"]
+    },
+    {
+      "id": "Q_INER_01",
+      "title": "Inertia and Motion in Deep Space",
+      "prompt": "A spacecraft in deep space runs out of fuel while coasting at 5,000 m/s away from all planets and stars. What will happen to its motion?",
+      "concept_id": "inertia",
+      "secondary_concept_ids": ["newton_first_law", "force"],
+      "difficulty": "easy",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) It will gradually slow down and stop as its internal inertia runs out.",
+        "B) It will continue moving at 5,000 m/s indefinitely in a straight line.",
+        "C) It will immediately stop when the engine stops pushing.",
+        "D) It will begin to spiral in place."
+      ],
+      "correct_answer": "B",
+      "rubric": "By Newton's first law and the concept of inertia, an object in motion remains in motion at constant velocity unless acted upon by an external net force.",
+      "hints": [
+        "Newton's First Law: what does an object do when net force is zero?",
+        "Is inertia a force that runs out, or an inherent property resisting change?"
+      ],
+      "prerequisites": ["mass"],
+      "target_misconceptions": ["PHY_M003", "PHY_M005"]
+    },
+    {
+      "id": "Q_FRC_01",
+      "title": "Forces Acting on a Book at Rest",
+      "prompt": "A textbook rests motionless on a flat wooden desk. Which statement correctly describes the forces acting on the book?",
+      "concept_id": "force",
+      "secondary_concept_ids": ["net_force", "newton_first_law"],
+      "difficulty": "easy",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) There are no forces acting on the book because it is not moving.",
+        "B) Only gravity pulls down; the desk is merely an immovable barrier.",
+        "C) Gravity pulls downward and the normal force pushes upward with equal magnitude, balancing to a net force of zero.",
+        "D) The downward gravitational force is greater than the upward normal force."
+      ],
+      "correct_answer": "C",
+      "rubric": "A motionless object is in static equilibrium: multiple non-zero forces act (downward gravity and upward normal force from the desk), summing to a net force of zero.",
+      "hints": [
+        "Does being at rest mean zero forces act, or that the forces are balanced?",
+        "What pushes up against gravity to keep the book from falling through the desk?"
+      ],
+      "prerequisites": [],
+      "target_misconceptions": ["PHY_M006"]
+    },
+    {
+      "id": "Q_NETF_01",
+      "title": "Net Force with Opposing Forces",
+      "prompt": "A box of mass 5 kg is pulled to the right with a force of 30 N and pulled to the left with a force of 10 N on a frictionless surface. What is the net force acting on the box?",
+      "concept_id": "net_force",
+      "secondary_concept_ids": ["force"],
+      "difficulty": "easy",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) 40 N to the right",
+        "B) 20 N to the right",
+        "C) 30 N to the right",
+        "D) 300 N to the right"
+      ],
+      "correct_answer": "B",
+      "rubric": "Forces are vectors. Opposing collinear forces subtract: F_net = 30 N - 10 N = 20 N in the direction of the larger force (right).",
+      "hints": [
+        "Because the forces point in opposite directions, you must subtract, not add.",
+        "30 N - 10 N = ?"
+      ],
+      "prerequisites": ["force"],
+      "target_misconceptions": ["PHY_M008"]
+    },
+    {
+      "id": "Q_NETF_02",
+      "title": "Net Force in Uniform Motion",
+      "prompt": "A cargo crate slides across a warehouse floor at a constant velocity of 2 m/s. An electric winch pulls it forward with 150 N. What is the magnitude of the net force on the crate?",
+      "concept_id": "net_force",
+      "secondary_concept_ids": ["friction", "newton_first_law", "acceleration"],
+      "difficulty": "medium",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) 150 N forward",
+        "B) 0 N",
+        "C) 75 N forward",
+        "D) 300 N forward"
+      ],
+      "correct_answer": "B",
+      "rubric": "Constant velocity means zero acceleration. By Newton's second law, F_net = m * a = m * 0 = 0 N. Friction exerts 150 N backward, exactly balancing the forward pull.",
+      "hints": [
+        "What is the acceleration of an object moving at constant velocity?",
+        "If a = 0, what is F_net = m * a?"
+      ],
+      "prerequisites": ["force"],
+      "target_misconceptions": ["PHY_M005", "PHY_M007"]
+    },
+    {
+      "id": "Q_N1L_01",
+      "title": "Newton's First Law Application",
+      "prompt": "A hockey puck slides across frictionless ice at 5 m/s. How much force is required to keep it moving at this constant speed?",
+      "concept_id": "newton_first_law",
+      "secondary_concept_ids": ["inertia", "force", "net_force"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "0",
+      "rubric": "Newton's First Law states that an object in motion continues in motion with constant velocity unless an external net force acts. Zero net force is required.",
+      "hints": [
+        "Does an object need continuous force to maintain constant velocity on frictionless ice?",
+        "Newton's First Law says a net force is only needed to CHANGE motion."
+      ],
+      "prerequisites": ["inertia", "net_force"],
+      "target_misconceptions": ["PHY_M005"]
+    },
+    {
+      "id": "Q_N1L_02",
+      "title": "Sudden Braking and Inertia",
+      "prompt": "When a city bus brakes suddenly, standing passengers lurch forward. What physical concept explains this?",
+      "concept_id": "newton_first_law",
+      "secondary_concept_ids": ["inertia", "mass"],
+      "difficulty": "easy",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) An invisible forward force pushes them when the brakes engage.",
+        "B) The passengers' inertia causes them to continue moving forward at their prior velocity while the bus decelerates underneath them.",
+        "C) Centrifugal force propels them forward.",
+        "D) Air pressure inside the bus surges forward."
+      ],
+      "correct_answer": "B",
+      "rubric": "By inertia, passenger bodies maintain their forward velocity until a net braking force is exerted on them. No new forward force is created.",
+      "hints": [
+        "Were the passengers already moving forward before the brakes were tapped?",
+        "Their bodies continue moving forward due to inertia."
+      ],
+      "prerequisites": ["inertia", "net_force"],
+      "target_misconceptions": ["PHY_M003"]
+    },
+    {
+      "id": "Q_N2L_01",
+      "title": "Newton's Second Law Calculation",
+      "prompt": "A net force of 20 N acts on a cart of mass 4 kg. What is the acceleration of the cart?",
+      "concept_id": "newton_second_law",
+      "secondary_concept_ids": ["net_force", "mass", "acceleration"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "5",
+      "rubric": "a = F_net / m = 20 N / 4 kg = 5 m/s².",
+      "hints": [
+        "Apply F_net = m * a.",
+        "Divide 20 N by 4 kg."
+      ],
+      "prerequisites": ["mass", "net_force", "acceleration"],
+      "target_misconceptions": ["PHY_M007"]
+    },
+    {
+      "id": "Q_N2L_02",
+      "title": "Multi-Force Acceleration",
+      "prompt": "A 10 kg sled is pulled with 50 N East while a friction force of 20 N resists Westward. What is the magnitude of the sled's acceleration?",
+      "concept_id": "newton_second_law",
+      "secondary_concept_ids": ["net_force", "friction", "acceleration"],
+      "difficulty": "medium",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "3",
+      "rubric": "Net force = 50 N - 20 N = 30 N East. Acceleration = F_net / m = 30 N / 10 kg = 3 m/s².",
+      "hints": [
+        "Step 1: Calculate the net force by subtracting opposing forces (50 - 20 = 30 N).",
+        "Step 2: Divide net force by mass (30 N / 10 kg)."
+      ],
+      "prerequisites": ["mass", "net_force", "acceleration"],
+      "target_misconceptions": ["PHY_M008"]
+    },
+    {
+      "id": "Q_N2L_03",
+      "title": "Coupled System Acceleration",
+      "prompt": "Two blocks (m1 = 2 kg and m2 = 3 kg) connected by a light string rest on a frictionless table. A horizontal force of 25 N pulls m2. What is the acceleration of the combined system?",
+      "concept_id": "newton_second_law",
+      "secondary_concept_ids": ["mass", "net_force", "acceleration"],
+      "difficulty": "hard",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "5",
+      "rubric": "Total mass = 2 kg + 3 kg = 5 kg. System acceleration = F_net / m_total = 25 N / 5 kg = 5 m/s².",
+      "hints": [
+        "The two blocks accelerate together as one combined system.",
+        "Find the total mass first (2 + 3 = 5 kg), then use a = F / m."
+      ],
+      "prerequisites": ["mass", "net_force", "acceleration"],
+      "target_misconceptions": ["PHY_M008"]
+    },
+    {
+      "id": "Q_N3L_01",
+      "title": "Action-Reaction Pairs: Bug and Windshield",
+      "prompt": "A high-speed highway truck collides head-on with a small flying mosquito. How does the magnitude of the force exerted by the truck on the mosquito compare to the force exerted by the mosquito on the truck?",
+      "concept_id": "newton_third_law",
+      "secondary_concept_ids": ["force", "mass", "acceleration"],
+      "difficulty": "medium",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) The truck exerts a vastly larger force because it has much greater mass and momentum.",
+        "B) The mosquito exerts a larger force because it gets crushed.",
+        "C) The forces have exactly equal magnitude according to Newton's Third Law.",
+        "D) The truck exerts a force, but the mosquito exerts zero force."
+      ],
+      "correct_answer": "C",
+      "rubric": "By Newton's Third Law, interaction forces between two bodies are always equal in magnitude and opposite in direction. The mosquito undergoes massive acceleration because of its tiny mass (a = F/m), not because the force was larger.",
+      "hints": [
+        "Newton's Third Law applies to every interaction regardless of mass difference.",
+        "Do not confuse force with the resulting acceleration (damage)."
+      ],
+      "prerequisites": ["force"],
+      "target_misconceptions": ["PHY_M009"]
+    },
+    {
+      "id": "Q_N3L_02",
+      "title": "Why Action-Reaction Does Not Cancel",
+      "prompt": "A horse pulls a cart forward. The cart pulls backward on the horse with an equal force. A student asks: 'Why does the cart accelerate if these two forces are equal and opposite?' What is the correct explanation?",
+      "concept_id": "newton_third_law",
+      "secondary_concept_ids": ["force", "net_force", "newton_second_law"],
+      "difficulty": "hard",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) Newton's Third Law only applies once motion ceases.",
+        "B) Action and reaction forces act on two DIFFERENT objects, so they never cancel each other out on a single object.",
+        "C) The horse's pull is slightly larger than the cart's backward pull during acceleration.",
+        "D) Friction eliminates the reaction force entirely."
+      ],
+      "correct_answer": "B",
+      "rubric": "Action and reaction forces act on distinct bodies: the horse exerts force on the cart, while the cart exerts force on the horse. To find the cart's acceleration, only forces acting ON the cart are summed.",
+      "hints": [
+        "Which object does the forward pull act on? Which object does the backward pull act on?",
+        "Forces can only cancel if they act on the SAME body."
+      ],
+      "prerequisites": ["force"],
+      "target_misconceptions": ["PHY_M010"]
+    },
+    {
+      "id": "Q_FRIC_01",
+      "title": "Static vs Kinetic Friction",
+      "prompt": "A heavy wooden crate has a maximum static friction limit of 100 N. A person pushes horizontally with 40 N, and the crate does not budge. What is the magnitude of the static friction force acting on the crate?",
+      "concept_id": "friction",
+      "secondary_concept_ids": ["force", "net_force"],
+      "difficulty": "medium",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "40",
+      "rubric": "Static friction is an adaptive, responsive force: f_s matches the applied force up to its maximum threshold. Because the crate remains stationary, F_net = 0, so f_s = 40 N.",
+      "hints": [
+        "If the crate remains motionless, what must the net horizontal force be?",
+        "Static friction only exerts what is needed to maintain equilibrium, not its maximum 100 N."
+      ],
+      "prerequisites": ["force", "net_force"],
+      "target_misconceptions": ["PHY_M013"]
+    },
+    {
+      "id": "Q_FRIC_02",
+      "title": "Friction Direction in Walking",
+      "prompt": "When a person walks forward on a dry pavement, in which direction does the friction force from the ground act on their shoes?",
+      "concept_id": "friction",
+      "secondary_concept_ids": ["force", "newton_third_law"],
+      "difficulty": "hard",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) Backward, because friction always opposes the direction of overall motion.",
+        "B) Forward, because the foot pushes backward against the pavement and static friction pushes forward on the foot.",
+        "C) Downward, perpendicular to the pavement.",
+        "D) Zero, because walking does not slip."
+      ],
+      "correct_answer": "B",
+      "rubric": "The foot attempts to slip backward relative to the ground. Static friction opposes this impending relative slip, pushing forward on the shoe and propelling the walker forward.",
+      "hints": [
+        "Which way does your foot push backward on the floor when stepping?",
+        "Static friction opposes RELATIVE motion between surfaces, not necessarily overall body velocity."
+      ],
+      "prerequisites": ["force", "net_force"],
+      "target_misconceptions": ["PHY_M012"]
+    },
+    {
+      "id": "Q_MOM_01",
+      "title": "Linear Momentum Calculation",
+      "prompt": "A bowling ball of mass 6 kg rolls down an alley with a velocity of 4 m/s. What is its linear momentum in kg·m/s?",
+      "concept_id": "momentum",
+      "secondary_concept_ids": ["mass", "velocity"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "24",
+      "rubric": "p = m * v = 6 kg * 4 m/s = 24 kg·m/s.",
+      "hints": [
+        "Momentum is mass times velocity (p = m * v).",
+        "Multiply 6 by 4."
+      ],
+      "prerequisites": ["mass", "velocity"],
+      "target_misconceptions": []
+    },
+    {
+      "id": "Q_MOM_02",
+      "title": "Momentum vs Kinetic Energy Comparison",
+      "prompt": "A 1000 kg car and a 2000 kg truck both have the exact same linear momentum of 20,000 kg·m/s. Which vehicle has greater kinetic energy?",
+      "concept_id": "momentum",
+      "secondary_concept_ids": ["kinetic_energy", "mass", "speed"],
+      "difficulty": "hard",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) Both have identical kinetic energy because their momentums are equal.",
+        "B) The 2000 kg truck, because it has twice the mass.",
+        "C) The 1000 kg car, because KE = p² / (2m), meaning smaller mass gives larger KE at fixed momentum.",
+        "D) Neither vehicle has kinetic energy."
+      ],
+      "correct_answer": "C",
+      "rubric": "KE = p² / (2m). Since p is the same, KE is inversely proportional to mass. The car travels at 20 m/s (KE = 200 kJ) while the truck travels at 10 m/s (KE = 100 kJ).",
+      "hints": [
+        "Calculate the speed of each vehicle first (v = p / m).",
+        "Car: v = 20 m/s; Truck: v = 10 m/s. Now compute KE = 0.5 * m * v²."
+      ],
+      "prerequisites": ["mass", "velocity"],
+      "target_misconceptions": ["PHY_M014"]
+    },
+    {
+      "id": "Q_COM_01",
+      "title": "Conservation of Momentum in Collision",
+      "prompt": "A 2 kg glider moving at 3 m/s on a frictionless air track collides with and sticks to a stationary 4 kg glider. What is their combined velocity after the collision?",
+      "concept_id": "conservation_of_momentum",
+      "secondary_concept_ids": ["momentum", "mass", "velocity"],
+      "difficulty": "medium",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "1",
+      "rubric": "Total initial momentum = (2 kg * 3 m/s) + 0 = 6 kg·m/s. Total mass after collision = 2 + 4 = 6 kg. v_final = p_total / m_total = 6 / 6 = 1 m/s.",
+      "hints": [
+        "Total momentum before collision equals total momentum after.",
+        "p_initial = 2 * 3 = 6 kg·m/s. Combined mass = 6 kg."
+      ],
+      "prerequisites": ["momentum"],
+      "target_misconceptions": ["PHY_M016"]
+    },
+    {
+      "id": "Q_COM_02",
+      "title": "External Force and Momentum Conservation",
+      "prompt": "Under what condition is the total linear momentum of a system of particles strictly conserved?",
+      "concept_id": "conservation_of_momentum",
+      "secondary_concept_ids": ["momentum", "net_force"],
+      "difficulty": "medium",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) When there are no internal forces acting between particles.",
+        "B) When the net external force acting on the system is zero.",
+        "C) Only during perfectly elastic collisions.",
+        "D) Whenever total kinetic energy is conserved."
+      ],
+      "correct_answer": "B",
+      "rubric": "dp_total / dt = F_net_external. Total momentum is conserved if and only if the net external force on the system is zero.",
+      "hints": [
+        "Internal forces always cancel in pairs via Newton's Third Law.",
+        "What kind of net force changes the total momentum of a system?"
+      ],
+      "prerequisites": ["momentum"],
+      "target_misconceptions": ["PHY_M017"]
+    },
+    {
+      "id": "Q_WRK_01",
+      "title": "Work Done by Perpendicular Force",
+      "prompt": "A porter carries a heavy 20 kg suitcase on their shoulder, walking 50 meters horizontally across a flat airport terminal at constant speed. How much mechanical work does the vertical upward lifting force perform on the suitcase during this horizontal walk?",
+      "concept_id": "work",
+      "secondary_concept_ids": ["force", "displacement"],
+      "difficulty": "medium",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "0",
+      "rubric": "Work is W = F * d * cos(theta). The lifting force is vertical (theta = 90 degrees relative to horizontal displacement), and cos(90) = 0. Therefore, zero mechanical work is done.",
+      "hints": [
+        "Look at the angle between the vertical lifting force and the horizontal displacement.",
+        "W = F * d * cos(90°). What is cos(90°)?"
+      ],
+      "prerequisites": ["force", "displacement"],
+      "target_misconceptions": ["PHY_M018", "PHY_M019"]
+    },
+    {
+      "id": "Q_WRK_02",
+      "title": "Positive and Negative Work",
+      "prompt": "A crane lowers a 500 N beam vertically downward at a constant velocity through a displacement of 4 meters. What is the work done by the upward tension force in the crane's cable?",
+      "concept_id": "work",
+      "secondary_concept_ids": ["force", "displacement"],
+      "difficulty": "medium",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "-2000",
+      "rubric": "Tension acts upward (theta = 180 degrees relative to downward displacement). W = F * d * cos(180) = 500 N * 4 m * (-1) = -2000 J.",
+      "hints": [
+        "The displacement is downward, but the cable tension pulls upward.",
+        "Forces opposing displacement perform negative work."
+      ],
+      "prerequisites": ["force", "displacement"],
+      "target_misconceptions": ["PHY_M019"]
+    },
+    {
+      "id": "Q_KE_01",
+      "title": "Kinetic Energy Quadratic Scaling",
+      "prompt": "If a sports car triples its driving speed from 20 m/s to 60 m/s, by what factor does its kinetic energy increase?",
+      "concept_id": "kinetic_energy",
+      "secondary_concept_ids": ["speed", "mass"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "9",
+      "rubric": "Kinetic energy is proportional to the square of speed: KE = 0.5 * m * v². Tripling speed (3x) multiplies KE by 3² = 9.",
+      "hints": [
+        "Kinetic energy formula: KE = 0.5 * m * v².",
+        "What is (3v)² in terms of v²?"
+      ],
+      "prerequisites": ["mass", "speed"],
+      "target_misconceptions": ["PHY_M020"]
+    },
+    {
+      "id": "Q_KE_02",
+      "title": "Kinetic Energy Calculation",
+      "prompt": "A 2 kg projectile moves at a speed of 10 m/s. What is its kinetic energy in Joules?",
+      "concept_id": "kinetic_energy",
+      "secondary_concept_ids": ["mass", "speed"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "100",
+      "rubric": "KE = 0.5 * m * v² = 0.5 * 2 kg * (10 m/s)² = 1 * 100 = 100 J.",
+      "hints": [
+        "KE = 1/2 * m * v².",
+        "0.5 * 2 * 100 = ?"
+      ],
+      "prerequisites": ["mass", "speed"],
+      "target_misconceptions": []
+    },
+    {
+      "id": "Q_PE_01",
+      "title": "Gravitational Potential Energy",
+      "prompt": "A 5 kg stone is lifted vertically to a height of 10 meters above the ground (use g = 9.8 m/s²). What is its gravitational potential energy relative to the ground?",
+      "concept_id": "potential_energy",
+      "secondary_concept_ids": ["mass", "height", "gravitational_field_strength"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "490",
+      "rubric": "PE = m * g * h = 5 kg * 9.8 m/s² * 10 m = 490 J.",
+      "hints": [
+        "Use PE = m * g * h.",
+        "Multiply 5 * 9.8 * 10."
+      ],
+      "prerequisites": ["mass", "height", "gravitational_field_strength"],
+      "target_misconceptions": ["PHY_M021"]
+    },
+    {
+      "id": "Q_PE_02",
+      "title": "Potential Energy Reference Frame",
+      "prompt": "Can gravitational potential energy have a negative value?",
+      "concept_id": "potential_energy",
+      "secondary_concept_ids": ["height", "gravitational_field_strength"],
+      "difficulty": "medium",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) No, energy is a scalar magnitude and can never be negative.",
+        "B) Yes, if the object is located below the arbitrarily chosen zero-reference height.",
+        "C) Only in non-gravitational magnetic fields.",
+        "D) Only when mass is considered negative."
+      ],
+      "correct_answer": "B",
+      "rubric": "Potential energy is defined relative to an arbitrary reference point where PE = 0. If an object is below this reference level, h < 0, giving negative potential energy.",
+      "hints": [
+        "Potential energy depends on the chosen reference datum (h = 0).",
+        "If ground level is 0, what is the PE at the bottom of a well?"
+      ],
+      "prerequisites": ["mass", "height", "gravitational_field_strength"],
+      "target_misconceptions": ["PHY_M021"]
+    },
+    {
+      "id": "Q_WET_01",
+      "title": "Work-Energy Theorem Application",
+      "prompt": "A net force of 50 N pushes a 4 kg cart from rest across a smooth floor over a distance of 8 meters. What is the cart's final kinetic energy?",
+      "concept_id": "work_energy_theorem",
+      "secondary_concept_ids": ["work", "kinetic_energy", "net_force"],
+      "difficulty": "medium",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "400",
+      "rubric": "By the Work-Energy Theorem: W_net = Delta_KE. W_net = F_net * d = 50 N * 8 m = 400 J. Since initial KE = 0, final KE = 400 J.",
+      "hints": [
+        "Work-Energy Theorem: Net work done on an object equals change in kinetic energy.",
+        "W_net = F_net * d = 50 * 8 = ?"
+      ],
+      "prerequisites": ["work", "kinetic_energy"],
+      "target_misconceptions": ["PHY_M022"]
+    },
+    {
+      "id": "Q_COE_01",
+      "title": "Conservation of Mechanical Energy",
+      "prompt": "A 2 kg pendulum bob is released from rest at a height of 5 meters above its lowest point. Ignoring air resistance, what is its speed at the lowest point? (Take g = 10 m/s²)",
+      "concept_id": "conservation_of_energy",
+      "secondary_concept_ids": ["potential_energy", "kinetic_energy", "speed"],
+      "difficulty": "hard",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "10",
+      "rubric": "Initial mechanical energy = mgh = 2 * 10 * 5 = 100 J. At the lowest point, all PE converts to KE: 0.5 * m * v² = 100 J -> 0.5 * 2 * v² = 100 -> v² = 100 -> v = 10 m/s.",
+      "hints": [
+        "Energy is conserved: initial PE = final KE.",
+        "mgh = 0.5 * m * v² => v = sqrt(2gh).",
+        "sqrt(2 * 10 * 5) = sqrt(100) = ?"
+      ],
+      "prerequisites": ["kinetic_energy", "potential_energy", "work_energy_theorem"],
+      "target_misconceptions": ["PHY_M023"]
+    },
+    {
+      "id": "Q_POW_01",
+      "title": "Power Calculation",
+      "prompt": "An electric elevator motor performs 120,000 Joules of work in 60 seconds. What is the power output of the motor in Watts?",
+      "concept_id": "power",
+      "secondary_concept_ids": ["work", "time_interval"],
+      "difficulty": "easy",
+      "question_type": "numerical",
+      "options": [],
+      "correct_answer": "2000",
+      "rubric": "Power = Work / Time = 120,000 J / 60 s = 2,000 W (2 kW).",
+      "hints": [
+        "Power is the rate at which work is done: P = W / t.",
+        "Divide 120,000 by 60."
+      ],
+      "prerequisites": ["work", "time_interval"],
+      "target_misconceptions": ["PHY_M024"]
+    },
+    {
+      "id": "Q_POW_02",
+      "title": "Power vs Energy Distinction",
+      "prompt": "Two weightlifters, Alex and Ben, both lift a 100 kg barbell by 2 meters. Alex completes the lift in 1 second, while Ben takes 3 seconds. Which statement is true?",
+      "concept_id": "power",
+      "secondary_concept_ids": ["work", "time_interval"],
+      "difficulty": "medium",
+      "question_type": "multiple_choice",
+      "options": [
+        "A) Alex does three times more work than Ben.",
+        "B) Alex and Ben do identical work, but Alex exerts three times more power.",
+        "C) Ben exerts more power because he sustained the force longer.",
+        "D) Both exert identical power and work."
+      ],
+      "correct_answer": "B",
+      "rubric": "Work depends only on force and displacement (W = mgh is identical). Power is work divided by time: since Alex takes 1/3 the time, Alex develops 3x greater power.",
+      "hints": [
+        "Do both lifters displace the barbell by the same vertical height?",
+        "If work is the same, how does time elapsed affect power (P = W / t)?"
+      ],
+      "prerequisites": ["work", "time_interval"],
+      "target_misconceptions": ["PHY_M024"]
+    }
+  ]
+}
