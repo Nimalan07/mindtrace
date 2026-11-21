@@ -52,15 +52,19 @@ export default function StudentDashboardPage() {
     };
   }, [currentStudentId, reloadTrigger]);
 
+  const isStale = data !== null && data.student_id !== currentStudentId;
+  const showSkeleton = loading || isStale;
+
   const handleRetry = () => {
     setLoading(true);
+    setError(null);
     setReloadTrigger((prev) => prev + 1);
   };
 
   return (
     <div className="space-y-6">
       {/* Error Banner with Retry */}
-      {error && (
+      {error && !loading && (
         <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 flex items-start justify-between gap-4">
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
@@ -88,10 +92,10 @@ export default function StudentDashboardPage() {
       )}
 
       {/* Loading Skeleton */}
-      {loading && <DashboardSkeleton />}
+      {showSkeleton && <DashboardSkeleton />}
 
       {/* Main Content */}
-      {!loading && data && (
+      {!showSkeleton && !error && data && (
         <>
           {/* Top Banner with dynamic Next Topic & BKT Status */}
           <DashboardHeader data={data} />

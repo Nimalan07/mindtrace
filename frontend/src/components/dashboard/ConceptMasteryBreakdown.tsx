@@ -95,6 +95,7 @@ export function ConceptMasteryBreakdown({ concepts }: ConceptMasteryBreakdownPro
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search concepts..."
+              aria-label="Search concepts by name or ID"
               className="pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-teal-500 w-48 text-slate-800"
             />
           </div>
@@ -103,6 +104,7 @@ export function ConceptMasteryBreakdown({ concepts }: ConceptMasteryBreakdownPro
             <select
               value={selectedTopic}
               onChange={(e) => setSelectedTopic(e.target.value)}
+              aria-label="Filter concepts by topic"
               className="px-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-teal-500 text-slate-700"
             >
               <option value="all">All Topics</option>
@@ -114,11 +116,12 @@ export function ConceptMasteryBreakdown({ concepts }: ConceptMasteryBreakdownPro
             </select>
           )}
 
-          <div className="inline-flex rounded-lg border border-slate-200 p-0.5 bg-slate-50">
+          <div className="inline-flex rounded-lg border border-slate-200 p-0.5 bg-slate-50" role="group" aria-label="Filter concepts by mastery status">
             {["all", "mastered", "practicing", "needs_support"].map((st) => (
               <button
                 key={st}
                 onClick={() => setStatusFilter(st)}
+                aria-pressed={statusFilter === st}
                 className={cn(
                   "px-2.5 py-1 text-xs font-medium rounded-md capitalize transition-all",
                   statusFilter === st

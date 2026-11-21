@@ -27,14 +27,21 @@ export function Navbar() {
     setShowCustomInput(false);
   };
 
+  const [inputError, setInputError] = useState<string | null>(null);
+
   const handleCustomSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (customInput.trim()) {
-      setCurrentStudentId(customInput.trim());
-      setDropdownOpen(false);
-      setShowCustomInput(false);
-      setCustomInput("");
+    const trimmed = customInput.trim();
+    if (!trimmed) return;
+    if (!/^[a-zA-Z0-9_-]{1,64}$/.test(trimmed)) {
+      setInputError("ID must be 1-64 alphanumeric chars, underscores, or hyphens.");
+      return;
     }
+    setCurrentStudentId(trimmed);
+    setDropdownOpen(false);
+    setShowCustomInput(false);
+    setCustomInput("");
+    setInputError(null);
   };
 
   const activeStudentInfo = availableStudents.find((s) => s.id === currentStudentId) || {
@@ -61,6 +68,8 @@ export function Navbar() {
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="flex items-center gap-3 px-3.5 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 transition-all text-left shadow-2xs"
             aria-label="Select student account"
+            aria-expanded={dropdownOpen}
+            aria-haspopup="dialog"
           >
             <div className="w-7 h-7 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-700">
               <UserCheck className="w-4 h-4" />
@@ -136,11 +145,18 @@ export function Navbar() {
                       <input
                         type="text"
                         value={customInput}
-                        onChange={(e) => setCustomInput(e.target.value)}
+                        onChange={(e) => {
+                          setCustomInput(e.target.value);
+                          if (inputError) setInputError(null);
+                        }}
                         placeholder="Enter student ID..."
                         className="w-full px-2.5 py-1.5 text-xs border border-slate-300 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-teal-500 font-mono"
                         autoFocus
+                        aria-label="Custom Student ID input"
                       />
+                      {inputError && (
+                        <p className="text-[10px] text-rose-600 font-medium leading-tight">{inputError}</p>
+                      )}
                       <div className="flex gap-2 justify-end">
                         <button
                           type="button"
