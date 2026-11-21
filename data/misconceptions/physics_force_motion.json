@@ -1,0 +1,680 @@
+{
+  "subject": "Physics",
+  "domain": "Classical Mechanics",
+  "version": "1.0.0",
+  "description": "Expert-authored candidate misconception catalog for force, motion, work and energy.",
+  "misconceptions": [
+    {
+      "id": "PHY_M001",
+      "title": "Zero Velocity Implies Zero Acceleration",
+      "associated_concepts": ["velocity", "acceleration"],
+      "incorrect_belief": "If an object has zero instantaneous velocity, its acceleration must also be zero.",
+      "correct_understanding": "Acceleration is the time rate of change of velocity. An object can momentarily have zero velocity while experiencing a non-zero net force and therefore non-zero acceleration.",
+      "typical_reasoning": [
+        "The ball stops at the peak, so its acceleration is zero at that instant.",
+        "Nothing is moving, so there is no acceleration."
+      ],
+      "common_symptoms": [
+        "Claims acceleration is zero at the apex of vertical projectile motion.",
+        "Equates instantaneous velocity directly with acceleration."
+      ],
+      "possible_causes": [
+        "Conflating position or instantaneous speed with rate of change.",
+        "Lack of differentiation between kinematic state and kinematic derivative."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M001_1",
+          "question": "A ball is thrown vertically upward. At the exact instant it reaches its highest point before falling back down, what is its acceleration?",
+          "supporting_evidence": "Claims acceleration is zero because the ball is momentarily at rest.",
+          "weakening_evidence": "States acceleration is 9.8 m/s² downward due to continuous gravitational net force."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M002",
+      "title": "Acceleration Direction Equals Velocity Direction",
+      "associated_concepts": ["velocity", "acceleration"],
+      "incorrect_belief": "An object moving in a given direction must always have its acceleration pointing in that same direction.",
+      "correct_understanding": "Acceleration points in the direction of the change in velocity (Δv). When an object slows down, its acceleration points opposite to the direction of velocity.",
+      "typical_reasoning": [
+        "The car is moving eastward, so its acceleration must be eastward.",
+        "You cannot accelerate backward if you are traveling forward."
+      ],
+      "common_symptoms": [
+        "Assigns positive acceleration to decelerating objects moving in the positive direction.",
+        "Conflates heading of motion with heading of net change in velocity."
+      ],
+      "possible_causes": [
+        "Colloquial usage where 'acceleration' only means speeding up.",
+        "Failing to treat velocity and acceleration as independent vector quantities."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M002_1",
+          "question": "A vehicle moves eastward along a straight highway while applying brakes to come to a halt. What is the direction of its acceleration vector?",
+          "supporting_evidence": "Insists acceleration is eastward because the car is traveling east.",
+          "weakening_evidence": "Explains acceleration is westward because the change in velocity opposes forward motion."
+        }
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "PHY_M003",
+      "title": "Inertia as an Active Impressed Force",
+      "associated_concepts": ["inertia", "force", "mass"],
+      "incorrect_belief": "Inertia is a physical force inside a moving object that actively pushes it forward to maintain motion.",
+      "correct_understanding": "Inertia is an inherent property of mass that quantifies resistance to changes in velocity; it is not a force and cannot exert a push or pull.",
+      "typical_reasoning": [
+        "The object keeps going because the force of inertia propels it forward.",
+        "The inertia overcomes the friction force."
+      ],
+      "common_symptoms": [
+        "Includes 'force of inertia' on free-body diagrams.",
+        "Treats inertia as an agent that can do work or apply pressure."
+      ],
+      "possible_causes": [
+        "Linguistic reification of 'inertia' as an active entity.",
+        "Pre-Newtonian impetus theory lingering in student intuition."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M003_1",
+          "question": "When a passenger slides across a slick seat as a car turns sharply, what physical entity exerts a force pushing them toward the car door?",
+          "supporting_evidence": "Claims the 'force of inertia' or 'inertia force' pushes the passenger outward.",
+          "weakening_evidence": "Identifies that no outward force exists; the passenger simply continues along a straight-line inertial path."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M004",
+      "title": "Gravitational Free-Fall Acceleration Proportional to Mass",
+      "associated_concepts": ["mass", "acceleration", "gravitational_field_strength"],
+      "incorrect_belief": "Heavier objects in free-fall in a vacuum accelerate faster than lighter objects because they have more mass.",
+      "correct_understanding": "In a vacuum, all objects fall with the exact same gravitational acceleration (a = g) regardless of mass, because gravitational force is proportional to mass (Fg = mg) and cancels out with inertial mass in a = Fg / m.",
+      "typical_reasoning": [
+        "The heavy stone falls faster because gravity pulls it with much more force.",
+        "A 10 kg bowling ball will hit the ground before a 1 kg ball dropped from the same height in vacuum."
+      ],
+      "common_symptoms": [
+        "Predicts mass-dependent free-fall flight times in frictionless or vacuum environments.",
+        "Conflates total gravitational force (weight) with resulting acceleration."
+      ],
+      "possible_causes": [
+        "Generalizing everyday observations where air resistance impedes light objects.",
+        "Ignoring that greater inertia exactly compensates for greater gravitational attraction."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M004_1",
+          "question": "A 10 kg steel sphere and a 0.1 kg wooden ball are dropped simultaneously from 10 meters inside an evacuated vacuum tube. Which reaches the bottom first?",
+          "supporting_evidence": "Claims the steel sphere hits first because it has greater mass and weight.",
+          "weakening_evidence": "Explains both reach the ground simultaneously because a = F/m = (mg)/m = g."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M005",
+      "title": "Constant Motion Requires Constant Applied Force",
+      "associated_concepts": ["force", "net_force", "newton_first_law"],
+      "incorrect_belief": "A continuous forward net force is necessary to keep an object moving at constant velocity.",
+      "correct_understanding": "Newton's First Law states an object maintains constant velocity indefinitely when the net external force is zero. A continuous force is only needed to balance opposing forces like friction.",
+      "typical_reasoning": [
+        "If you stop pushing, the cart stops moving, so motion requires force.",
+        "To keep a rocket traveling in space, its engines must fire continuously."
+      ],
+      "common_symptoms": [
+        "Draws a forward force arrow on objects moving at constant velocity with no external forward interaction.",
+        "Believes zero net force implies an object must immediately come to rest."
+      ],
+      "possible_causes": [
+        "Overgeneralizing terrestrial friction environments.",
+        "Aristotelian intuition equating motion directly with applied force."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M005_1",
+          "question": "A probe in deep interstellar space is coasting at 20,000 m/s far from any planets or stars with its propulsion off. What net force is required to keep it moving at this speed?",
+          "supporting_evidence": "Claims continuous thruster force is required to maintain forward speed.",
+          "weakening_evidence": "States zero net force is required because velocity remains constant without external disturbance."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M006",
+      "title": "Inactivity Implies Zero Forces",
+      "associated_concepts": ["force", "net_force", "newton_first_law"],
+      "incorrect_belief": "A stationary object on a surface experiences no forces acting on it at all.",
+      "correct_understanding": "A stationary object in equilibrium experiences balanced opposing forces whose vector sum is zero (ΣF = 0), such as downward gravity balanced by an upward normal contact force.",
+      "typical_reasoning": [
+        "The book is just sitting there doing nothing, so there are no forces.",
+        "Forces only happen when things move or collide."
+      ],
+      "common_symptoms": [
+        "Leaves free-body diagrams blank for stationary objects.",
+        "Denies that solid stationary surfaces exert upward normal forces."
+      ],
+      "possible_causes": [
+        "Restricting the concept of force to dynamic or active pushing agents.",
+        "Conflating zero net force with zero individual forces."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M006_1",
+          "question": "A heavy stone rests stationary on a flat concrete floor. Are there any forces acting on the stone?",
+          "supporting_evidence": "Claims no forces act on the stone because it is completely motionless.",
+          "weakening_evidence": "Identifies that gravity acts downward and the normal force from the floor acts upward with equal magnitude."
+        }
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "PHY_M007",
+      "title": "Force Proportional to Velocity (F = mv)",
+      "associated_concepts": ["force", "velocity", "acceleration", "newton_second_law"],
+      "incorrect_belief": "The net force acting on an object is proportional to its instantaneous velocity rather than its acceleration.",
+      "correct_understanding": "Newton's Second Law specifies that net force is directly proportional to acceleration (ΣF = ma). An object moving with high velocity can have zero net force acting upon it.",
+      "typical_reasoning": [
+        "Object A is moving at 100 m/s, so it must have a much bigger force acting on it than Object B moving at 10 m/s.",
+        "More speed means more force acting on the body right now."
+      ],
+      "common_symptoms": [
+        "Calculates net force using F = mv instead of F = ma.",
+        "Assumes high-speed objects experience large net forces even when traveling at constant speed."
+      ],
+      "possible_causes": [
+        "Conflating force with momentum or kinetic energy.",
+        "Intuition that faster moving objects 'contain' more force."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M007_1",
+          "question": "Glider A travels at a constant 80 m/s on a frictionless track. Glider B of identical mass accelerates from 0 to 5 m/s in 1 second. Which glider experiences a non-zero net force?",
+          "supporting_evidence": "Claims Glider A experiences a larger net force because its speed is higher.",
+          "weakening_evidence": "Explains Glider B experiences a net force because it is accelerating, while Glider A experiences zero net force."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M008",
+      "title": "Acceleration Determined by Single Force",
+      "associated_concepts": ["force", "net_force", "acceleration", "newton_second_law"],
+      "incorrect_belief": "An object's acceleration can be calculated using an individual applied force while ignoring opposing forces like friction.",
+      "correct_understanding": "Acceleration is determined strictly by the resultant vector sum of all external forces (ΣF = ma). Opposing forces like friction directly reduce the net force and resulting acceleration.",
+      "typical_reasoning": [
+        "I applied a 50 N pull on the 10 kg box, so the acceleration is 50/10 = 5 m/s², regardless of the rough surface.",
+        "The pull causes the acceleration, friction just slows it down later."
+      ],
+      "common_symptoms": [
+        "Omits friction, drag, or component forces when applying Newton's Second Law.",
+        "Calculates a = F_applied / m directly in the presence of known opposing forces."
+      ],
+      "possible_causes": [
+        "Selective focus on the primary or human-applied force.",
+        "Failing to construct a complete free-body diagram before calculating acceleration."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M008_1",
+          "question": "A 5 kg block is pulled horizontally with a 30 N force while a 10 N friction force opposes the motion. What is the acceleration of the block?",
+          "supporting_evidence": "Calculates a = 30 / 5 = 6 m/s² by ignoring friction.",
+          "weakening_evidence": "Calculates net force as 30 - 10 = 20 N and acceleration as 20 / 5 = 4 m/s²."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M009",
+      "title": "Mass-Dependent Interaction Force",
+      "associated_concepts": ["mass", "force", "newton_third_law"],
+      "incorrect_belief": "A more massive or faster object exerts a greater interaction force than a smaller or slower object during a mutual collision.",
+      "correct_understanding": "Newton's Third Law states that interaction forces between two bodies are always exactly equal in magnitude and opposite in direction, regardless of differences in mass, velocity, or structural damage.",
+      "typical_reasoning": [
+        "The large truck crushes the small car, so the truck's force on the car must be much greater.",
+        "The more massive object hits harder."
+      ],
+      "common_symptoms": [
+        "Predicts asymmetric contact forces in collisions involving unequal masses.",
+        "Infers force magnitude directly from observed damage or deformation."
+      ],
+      "possible_causes": [
+        "Conflating interaction force with resulting acceleration (a = F/m).",
+        "Heuristic belief that dominant or larger agents exert larger forces."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M009_1",
+          "question": "A massive freight truck collides head-on with a small compact car. During the collision, which vehicle experiences the greater force from the other?",
+          "supporting_evidence": "Claims the truck exerts a greater force on the car because it is heavier.",
+          "weakening_evidence": "States both experience forces of identical magnitude in opposite directions per Newton's Third Law."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M010",
+      "title": "Action-Reaction Forces Cancel Each Other",
+      "associated_concepts": ["force", "net_force", "newton_third_law"],
+      "incorrect_belief": "Newton's Third Law action and reaction forces act on the same body and cancel each other out, making acceleration impossible.",
+      "correct_understanding": "Action and reaction forces act on two entirely different interacting bodies. Because they act on separate bodies, they never cancel on any single body's free-body diagram.",
+      "typical_reasoning": [
+        "If the horse pulls the cart forward and the cart pulls the horse backward with equal force, the net force is zero and nothing can move.",
+        "Action and reaction cancel out like balanced forces."
+      ],
+      "common_symptoms": [
+        "Plots action-reaction pairs on the same object's free-body diagram.",
+        "Argues that Newton's Third Law prevents objects from accelerating."
+      ],
+      "possible_causes": [
+        "Confusing balanced equilibrium forces acting on one body with an interaction pair acting across two bodies.",
+        "Poor isolation of system boundaries."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M010_1",
+          "question": "If a horse exerts an equal and opposite force on a wagon to the force the wagon exerts on the horse, why is the horse able to accelerate the wagon forward?",
+          "supporting_evidence": "Claims the two forces cancel each other out unless the horse somehow pulls harder than the wagon pulls back.",
+          "weakening_evidence": "Explains that the forward force acts on the wagon while the backward force acts on the horse, so they do not cancel on the wagon."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M011",
+      "title": "Centrifugal Force as an Outward Physical Force",
+      "associated_concepts": ["force", "net_force", "inertia"],
+      "incorrect_belief": "An object moving in a circle experiences a real outward physical force pushing it away from the center in an inertial reference frame.",
+      "correct_understanding": "In an inertial frame of reference, there is no outward force. There is only an inward centripetal net force causing circular acceleration; the sensation of being flung outward is merely the object's inertia attempting to maintain a straight-line tangential path.",
+      "typical_reasoning": [
+        "When the roller coaster turns, centrifugal force pushes you outward against the seat wall.",
+        "The string must balance the outward centrifugal force."
+      ],
+      "common_symptoms": [
+        "Includes an outward 'centrifugal force' arrow in inertial free-body diagrams.",
+        "Believes that if the string holding a whirling ball breaks, the ball flies radially outward."
+      ],
+      "possible_causes": [
+        "Confusing sensations in an accelerating non-inertial frame with real physical interactions.",
+        "Misinterpreting straight-line tangential inertia as an outward radial displacement."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M011_1",
+          "question": "A stone attached to a string is swung in a horizontal circle. If the string suddenly snaps, in what direction does the stone initially move in an overhead view?",
+          "supporting_evidence": "Claims the stone flies radially outward away from the center due to centrifugal force.",
+          "weakening_evidence": "Explains the stone flies tangentially along its instantaneous velocity vector due to inertia."
+        }
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "PHY_M012",
+      "title": "Friction Always Opposes Direction of Motion",
+      "associated_concepts": ["friction", "force", "net_force"],
+      "incorrect_belief": "Friction always acts in the direction opposite to an object's overall motion relative to the ground.",
+      "correct_understanding": "Friction opposes relative sliding motion (or impending relative sliding) between contacting surfaces, not necessarily motion relative to the ground. Static friction provides the forward propulsion for pedestrians, wheeled vehicles, and conveyor belts.",
+      "typical_reasoning": [
+        "The car moves forward, so friction must point backward on every wheel.",
+        "Friction only ever slows things down; it can never push something forward."
+      ],
+      "common_symptoms": [
+        "Draws friction pointing backward on the drive wheels of an accelerating car.",
+        "Denies that static friction can be the sole force responsible for forward acceleration."
+      ],
+      "possible_causes": [
+        "Overgeneralizing kinetic friction on sliding blocks to all frictional interactions.",
+        "Conflating relative interfacial motion with global frame displacement."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M012_1",
+          "question": "When a rear-wheel-drive car accelerates forward along a dry horizontal road, in which direction does static friction act on the bottom of the rear tires?",
+          "supporting_evidence": "Insists friction must point backward because the car is moving forward.",
+          "weakening_evidence": "States static friction points forward because the tire contact patch pushes backward against the road."
+        }
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "PHY_M013",
+      "title": "Static Friction Fixed at Maximum Value",
+      "associated_concepts": ["friction", "force", "net_force"],
+      "incorrect_belief": "Static friction always has a fixed magnitude equal to μs N whenever surfaces are in stationary contact.",
+      "correct_understanding": "Static friction is an adjustable self-matching response described by an inequality (0 <= fs <= μs N). It matches the applied parallel force exactly until the maximum threshold μs N is exceeded.",
+      "typical_reasoning": [
+        "The max static friction is 100 N, so even if you push with 10 N, the friction force is 100 N.",
+        "Static friction is a constant property of the two surfaces."
+      ],
+      "common_symptoms": [
+        "Calculates static friction using fs = μs N for problems where the applied force is below threshold, yielding an impossible backward acceleration.",
+        "Fails to recognize static equilibrium adjustments."
+      ],
+      "possible_causes": [
+        "Treating an inequality boundary condition as an unconditional equation.",
+        "Confusing static friction with kinetic friction (which has a relatively constant value fk = μk N)."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M013_1",
+          "question": "A stationary 10 kg crate has a maximum static friction threshold of 50 N. If a worker pushes horizontally with a gentle force of 15 N and the crate does not move, what is the magnitude of the friction force?",
+          "supporting_evidence": "Claims the friction force is 50 N (or μs N).",
+          "weakening_evidence": "States the friction force is exactly 15 N to balance the horizontal push in static equilibrium."
+        }
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "PHY_M014",
+      "title": "Equal Momentum Implies Equal Kinetic Energy",
+      "associated_concepts": ["momentum", "kinetic_energy", "mass", "speed"],
+      "incorrect_belief": "Two objects with identical momentum must possess identical kinetic energy.",
+      "correct_understanding": "Kinetic energy relates to momentum via KE = p² / (2m). For two bodies with equal momentum, the less massive body travels faster and therefore carries substantially higher kinetic energy.",
+      "typical_reasoning": [
+        "Both objects have the same momentum, so they have the same amount of kinetic energy.",
+        "Momentum and energy of motion are basically the same thing."
+      ],
+      "common_symptoms": [
+        "Treats momentum and kinetic energy interchangeably in collision analysis.",
+        "Assumes equal momentum transfer implies equal energy transfer."
+      ],
+      "possible_causes": [
+        "Failing to distinguish linear dependence on speed (p = mv) from quadratic dependence (KE = 1/2 mv²).",
+        "Conflating two distinct conservation laws."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M014_1",
+          "question": "A 0.01 kg rifle bullet and a 5 kg bowling ball have the exact same linear momentum magnitude. Which object possesses greater kinetic energy?",
+          "supporting_evidence": "Claims both have equal kinetic energy because their momentums are identical.",
+          "weakening_evidence": "Calculates or reasons that the bullet has far greater kinetic energy because KE = p² / (2m) and the bullet mass is much smaller."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M015",
+      "title": "Momentum Depends Strictly on Speed",
+      "associated_concepts": ["momentum", "mass", "velocity", "speed"],
+      "incorrect_belief": "A faster-moving object always has more momentum than a slower-moving object, regardless of their masses.",
+      "correct_understanding": "Linear momentum is the product of mass and velocity (p = mv). A very massive object moving at low speed can easily possess far greater momentum than a light object traveling at high speed.",
+      "typical_reasoning": [
+        "The sports car travels at 50 m/s and the cargo ship travels at 2 m/s, so the car must have more momentum.",
+        "Speed is what determines how hard it is to stop something."
+      ],
+      "common_symptoms": [
+        "Ranks momentum purely by speed while neglecting mass differences.",
+        "Believes high-speed particles always dominate momentum interactions."
+      ],
+      "possible_causes": [
+        "Everyday colloquial usage associating 'momentum' primarily with swiftness or speed.",
+        "Ignoring the contribution of mass to inertia in motion."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M015_1",
+          "question": "Can a massive 50,000-ton cargo vessel cruising slowly at 2 m/s have more linear momentum than a 1,500 kg racing car speeding at 80 m/s?",
+          "supporting_evidence": "Argues the racing car has more momentum because it is moving forty times faster.",
+          "weakening_evidence": "Demonstrates that the product of the ship's huge mass and speed produces far greater momentum."
+        }
+      ],
+      "severity": "low"
+    },
+    {
+      "id": "PHY_M016",
+      "title": "Momentum Conserved Individually per Object",
+      "associated_concepts": ["momentum", "conservation_of_momentum"],
+      "incorrect_belief": "Each individual object participating in a collision must preserve its own initial momentum.",
+      "correct_understanding": "Conservation of momentum applies strictly to the total vector momentum of the isolated system (Σp_initial = Σp_final); individual objects routinely exchange momentum via mutual impulses.",
+      "typical_reasoning": [
+        "Object A lost momentum in the crash, so momentum was not conserved.",
+        "Each ball must keep the same momentum it had before they hit."
+      ],
+      "common_symptoms": [
+        "Applies conservation equations to single isolated particles instead of the interacting system.",
+        "Claims momentum was lost whenever one object slows down in a collision."
+      ],
+      "possible_causes": [
+        "Misinterpreting 'conservation' as an individual constraint rather than a collective system invariant.",
+        "Failing to draw system boundaries."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M016_1",
+          "question": "In a head-on collision between two billiard balls on a frictionless table, Ball A comes to a dead stop while Ball B shoots forward. Was momentum conserved?",
+          "supporting_evidence": "Claims momentum was destroyed for Ball A because its momentum dropped to zero.",
+          "weakening_evidence": "Explains total system momentum was conserved because all of Ball A's momentum was transferred to Ball B."
+        }
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "PHY_M017",
+      "title": "Conservation of Momentum Applied to Non-Isolated Systems",
+      "associated_concepts": ["momentum", "net_force", "conservation_of_momentum"],
+      "incorrect_belief": "Momentum is always conserved in all physical scenarios, even when net external forces act on the system.",
+      "correct_understanding": "Conservation of linear momentum holds if and only if the net external force acting on the chosen system is zero (ΣF_ext = 0). External net forces deliver external impulse that changes total system momentum.",
+      "typical_reasoning": [
+        "Momentum is always conserved everywhere, so the falling apple's momentum is constant.",
+        "Total momentum never changes no matter what forces are present."
+      ],
+      "common_symptoms": [
+        "Applies momentum conservation to single accelerating bodies under gravity or friction.",
+        "Fails to account for external impulse (J = F_ext * Δt)."
+      ],
+      "possible_causes": [
+        "Memorizing conservation laws as unconditional dogmas without scope conditions.",
+        "Neglecting external versus internal force distinctions."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M017_1",
+          "question": "A skydiver jumps from an airplane and accelerates downward through the air. Is the linear momentum of the skydiver conserved as they accelerate?",
+          "supporting_evidence": "Claims the skydiver's momentum is conserved because momentum is always conserved.",
+          "weakening_evidence": "Explains momentum is not conserved for the skydiver alone because an external net gravitational force acts upon them."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M018",
+      "title": "Effort / Force Exertion Equals Mechanical Work",
+      "associated_concepts": ["force", "displacement", "work"],
+      "incorrect_belief": "Exerting muscular force on a stationary object does mechanical work because it requires physical effort and causes fatigue.",
+      "correct_understanding": "Mechanical work requires a displacement along the line of action of the force (W = integral F * dr). Holding a heavy load stationary involves muscular metabolic effort (isometric contraction) but does zero mechanical work on the object (d = 0).",
+      "typical_reasoning": [
+        "I got exhausted holding the 50 kg barbell stationary overhead for 2 minutes, so I did a tremendous amount of work on it.",
+        "Pushing against a brick wall does work because you are pushing hard."
+      ],
+      "common_symptoms": [
+        "Calculates work as W = F * t or assigns positive work to stationary supports.",
+        "Conflates human physiological energy consumption with mechanical work performed on an external body."
+      ],
+      "possible_causes": [
+        "Equating everyday subjective exertion with the rigorous physical definition of work.",
+        "Ignoring the displacement factor in W = F * d * cos(theta)."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M018_1",
+          "question": "A weightlifter holds a 100 kg barbell motionless above their head for 30 seconds. How much mechanical work is done by the weightlifter on the barbell during those 30 seconds?",
+          "supporting_evidence": "Calculates large non-zero work based on weight multiplied by holding time.",
+          "weakening_evidence": "States zero mechanical work is done on the barbell because its displacement is zero."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M019",
+      "title": "Work is Direction-Agnostic",
+      "associated_concepts": ["force", "displacement", "work"],
+      "incorrect_belief": "Mechanical work is simply the product of force magnitude and distance moved (W = F * d), regardless of the angle between them.",
+      "correct_understanding": "Work is the scalar dot product of force and displacement vectors (W = F * d * cos(theta)). Forces acting perpendicular to displacement (theta = 90 deg, such as normal force or centripetal force) perform exactly zero mechanical work.",
+      "typical_reasoning": [
+        "A waiter walks horizontally at constant speed carrying a tray with 20 N of lifting force; work is 20 N times horizontal distance.",
+        "Any force acting on a moving object does work."
+      ],
+      "common_symptoms": [
+        "Omits the cos(theta) factor in work calculations.",
+        "Claims that centripetal forces or supporting normal forces perform mechanical work."
+      ],
+      "possible_causes": [
+        "Treating work as a scalar product of magnitudes without vector projection.",
+        "Memorizing simplified introductory formulas without angular constraints."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M019_1",
+          "question": "A traveler carries a 20 kg suitcase horizontally across a terminal for 50 meters at constant speed, supporting it with an upward force of 196 N. How much work does the upward supporting force do on the suitcase?",
+          "supporting_evidence": "Calculates work as 196 N * 50 m = 9,800 J.",
+          "weakening_evidence": "Explains work is zero because the upward supporting force is perpendicular to the horizontal displacement (cos 90 deg = 0)."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M020",
+      "title": "Kinetic Energy Linear with Speed",
+      "associated_concepts": ["kinetic_energy", "speed", "momentum"],
+      "incorrect_belief": "Kinetic energy is directly proportional to speed, so doubling an object's speed doubles its kinetic energy.",
+      "correct_understanding": "Kinetic energy is proportional to the square of speed (KE = 1/2 m v²). Doubling speed quadruples kinetic energy (factor of 4), and tripling speed increases KE by a factor of 9.",
+      "typical_reasoning": [
+        "The car went from 30 km/h to 60 km/h, so its kinetic energy doubled.",
+        "Energy scales linearly with how fast you are going, just like momentum."
+      ],
+      "common_symptoms": [
+        "Predicts linear braking distance scaling with speed instead of quadratic scaling.",
+        "Conflates the linear speed dependence of momentum (p = mv) with kinetic energy (KE = 1/2 mv²)."
+      ],
+      "possible_causes": [
+        "Linearity bias: assuming all physical relationships are linear by default.",
+        "Confusing momentum with kinetic energy."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M020_1",
+          "question": "A vehicle traveling at 40 km/h requires 10 meters of braking distance to stop under maximum constant braking. If the vehicle travels at 80 km/h on the same road, what is its minimum braking distance?",
+          "supporting_evidence": "Predicts 20 meters because speed doubled.",
+          "weakening_evidence": "Explains braking distance quadruples to 40 meters because kinetic energy is proportional to the square of speed."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M021",
+      "title": "Potential Energy as an Object-Intrinsic Property",
+      "associated_concepts": ["potential_energy", "height", "gravitational_field_strength"],
+      "incorrect_belief": "Gravitational potential energy is an absolute, intrinsic property possessed entirely by the object alone without reference to an external field or chosen baseline.",
+      "correct_understanding": "Gravitational potential energy belongs to the configuration of the object-Earth system and is physically defined only relative to a chosen reference datum (h = 0). Only differences in potential energy (ΔPE) have direct physical significance.",
+      "typical_reasoning": [
+        "This 2 kg ball inherently has 50 J of potential energy inside it.",
+        "Potential energy cannot be negative."
+      ],
+      "common_symptoms": [
+        "Assumes potential energy must have an absolute zero independent of a reference frame.",
+        "Rejects negative potential energy values when an object is below the chosen reference level."
+      ],
+      "possible_causes": [
+        "Reifying energy as a tangible substance stored inside an isolated body.",
+        "Ignoring the systemic interaction nature of conservative force fields."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M021_1",
+          "question": "A book rests on a desk on the second floor of a building. Can its gravitational potential energy validly be positive, zero, or negative?",
+          "supporting_evidence": "Insists potential energy must have a single positive value determined solely by the book's elevation above the ground.",
+          "weakening_evidence": "Explains potential energy depends on the chosen reference level: positive relative to ground, zero relative to desk, negative relative to ceiling."
+        }
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "PHY_M022",
+      "title": "Applied Work Equals Kinetic Energy Change",
+      "associated_concepts": ["work", "net_force", "kinetic_energy", "work_energy_theorem"],
+      "incorrect_belief": "The mechanical work done by any single applied force equals the change in kinetic energy of an object (W_applied = ΔKE).",
+      "correct_understanding": "The Work-Energy Theorem states that the net work done by ALL forces combined equals the change in kinetic energy (W_net = ΣW_i = ΔKE). Work done against friction or gravity must be included in W_net.",
+      "typical_reasoning": [
+        "I pushed the cart doing 200 J of work, so the cart must have gained 200 J of kinetic energy, even though the floor was rough.",
+        "Applied work directly converts into speed."
+      ],
+      "common_symptoms": [
+        "Equates applied force work directly to ΔKE in non-conservative or friction-dominated systems.",
+        "Neglects negative work done by dissipative opposing forces."
+      ],
+      "possible_causes": [
+        "Omission of non-conservative forces from net work summations.",
+        "Misinterpreting W in the theorem as 'applied work' rather than 'net resultant work'."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M022_1",
+          "question": "A person does 100 J of work pushing a box across a floor while friction does -40 J of work against the motion. What is the change in the box's kinetic energy?",
+          "supporting_evidence": "Claims the change in kinetic energy is 100 J based solely on applied work.",
+          "weakening_evidence": "Calculates ΔKE = W_net = 100 J + (-40 J) = 60 J."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "PHY_M023",
+      "title": "Energy Destroyed by Dissipative Forces",
+      "associated_concepts": ["friction", "conservation_of_energy", "work_energy_theorem"],
+      "incorrect_belief": "Friction and air resistance permanently destroy mechanical energy so that it ceases to exist in the universe.",
+      "correct_understanding": "Energy can neither be created nor destroyed. Dissipative forces like friction do negative mechanical work that transforms mechanical kinetic/potential energy into thermal and acoustic internal energy, conserving total energy.",
+      "typical_reasoning": [
+        "The car stopped moving because friction used up and destroyed its energy.",
+        "Energy is only conserved when there is no friction."
+      ],
+      "common_symptoms": [
+        "Claims total energy decreases in systems with friction.",
+        "Fails to account for thermal internal energy gains in energy balance equations."
+      ],
+      "possible_causes": [
+        "Restricting the concept of energy solely to macroscopic mechanical energy.",
+        "Colloquial expressions such as 'energy consumption' or 'running out of energy'."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M023_1",
+          "question": "A sliding hockey puck on rough ice slows down and comes to a complete halt. What happened to its initial kinetic energy?",
+          "supporting_evidence": "Claims the kinetic energy was permanently destroyed and eliminated by friction.",
+          "weakening_evidence": "Explains the kinetic energy was transformed into thermal energy, slightly warming the puck and the ice."
+        }
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "PHY_M024",
+      "title": "Power Conflated with Energy or Force",
+      "associated_concepts": ["power", "work", "time_interval"],
+      "incorrect_belief": "Power is equivalent to the total amount of work done or the total force applied, independent of the time interval involved.",
+      "correct_understanding": "Power is the time rate of doing work or transferring energy (P = ΔW / Δt). A high-power machine does work faster, but does not necessarily do more total work than a low-power machine operating over a longer duration.",
+      "typical_reasoning": [
+        "A 1,000 W motor always does more total work than a 100 W motor.",
+        "More power means applying more force."
+      ],
+      "common_symptoms": [
+        "Equates high power with greater total work output without considering operating duration.",
+        "Uses watts and joules interchangeably."
+      ],
+      "possible_causes": [
+        "Linguistic blurring between 'powerful', 'strong', and 'energetic' in vernacular speech.",
+        "Omitting the time dimension from rate quantities."
+      ],
+      "diagnostic_questions": [
+        {
+          "question_id": "DQ_PHY_M024_1",
+          "question": "Crane A lifts a 500 kg container 10 meters in 5 seconds. Crane B lifts the identical container 10 meters in 20 seconds. Compare the total work done and the power exerted by each crane.",
+          "supporting_evidence": "Claims Crane A did more work because it is more powerful.",
+          "weakening_evidence": "Explains both cranes did identical total work (W = mgh), but Crane A exerted four times greater power because it did the work in one-fourth the time."
+        }
+      ],
+      "severity": "medium"
+    }
+  ]
+}
