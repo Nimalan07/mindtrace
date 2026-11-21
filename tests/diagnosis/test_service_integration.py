@@ -845,3 +845,89 @@ def test_unavailable_likelihood_model_fallback(client, sample_rubric_payload, te
     assert followup["question_id"] == "DQ_UNCALIBRATED"
     assert followup["expected_information_gain"] == 0.0
     assert "fallback" in followup["selection_rationale"].lower()
+
+
+# 21. Explicit test: session persistence genuinely survives application process restart
+def test_persistence_survives_process_restart(tmp_path, sample_rubric_payload):
+    db_file = tmp_path / "test_restart_sessions.db"
+
+    # Process 1: Start service with on-disk SQLite, submit diagnosis, and shutdown process
+    cg = ConceptGraph.load_from_json(DATA_DIR / "concepts" / "physics_force_motion.json")
+    ml = MisconceptionLibrary.load_from_json(DATA_DIR / "misconceptions" / "physics_force_motion.json", concept_graph=cg)
+    qs = ActiveQuestionSelector.load_from_json(DATA_DIR / "misconceptions" / "likelihoods.json")
+    repo_1 = SQLiteSessionRepository(db_path=str(db_file))
+
+    service_1 = DiagnosisService(
+        concept_graph=cg,
+        misconception_library=ml,
+        question_selector=qs,
+        session_repository=repo_1,
+    )
+
+    resp_text = "Net force is 20 + 10 = 30 N."
+    mock_json = json.dumps({
+        "question_id": "Q_ACCEL_01",
+        "original_student_response": resp_text,
+        "reasoning_steps": [
+            {
+                "step_id": "step_1",
+                "order": 1,
+                "original_text": resp_text,
+                "claim": "Net force is 20 + 10 = 30 N",
+                "reasoning_type": "mathematical_operation",
+                "concept_ids": ["net_force"],
+                "formulas": [],
+                "evidence_text": resp_text,
+                "uncertainty_flag": False,
+            }
+        ],
+        "identified_concepts": ["net_force"],
+        "extraction_status": "complete",
+        "ambiguity_notes": [],
+    })
+    service_1.reasoning_extractor.provider.register_response("Net force is 20 + 10", mock_json)
+
+    from backend.app.diagnosis.service_schemas import DiagnosisSubmitRequest, QuestionRubric
+    sub_req = DiagnosisSubmitRequest(
+        student_id="student_restart_test",
+        question_id="Q_ACCEL_01",
+        question_text="A 5 kg object experiences 20 N right and 10 N left.",
+        student_response=resp_text,
+        rubric=QuestionRubric.model_validate(sample_rubric_payload),
+        relevant_concept_ids=["net_force"],
+    )
+    sub_res = service_1.submit_diagnosis(sub_req)
+    session_id = sub_res.diagnosis_session_id
+    followup_qid = sub_res.selected_followup_question.question_id
+
+    # Simulate complete process termination: destroy service_1 and repo_1
+    del service_1
+    del repo_1
+
+    # Process 2: Start a brand-new application instance pointing to the same SQLite database file
+    repo_2 = SQLiteSessionRepository(db_path=str(db_file))
+    service_2 = DiagnosisService(
+        concept_graph=cg,
+        misconception_library=ml,
+        question_selector=qs,
+        session_repository=repo_2,
+    )
+
+    # Verify session is retrieved after restart
+    persisted_record = service_2.session_repository.get_session(session_id)
+    assert persisted_record is not None
+    assert persisted_record["student_id"] == "student_restart_test"
+    assert persisted_record["diagnostic_status"] == "collecting_evidence"
+
+    # Submit a follow-up answer in the new process
+    from backend.app.diagnosis.service_schemas import DiagnosisFollowupRequest
+    f_res = service_2.process_followup(
+        DiagnosisFollowupRequest(
+            diagnosis_session_id=session_id,
+            followup_question_id=followup_qid,
+            student_response="The car accelerates more because smaller mass under equal force.",
+        )
+    )
+    assert f_res.evidence_history_count == 1
+    assert session_id in service_2.session_repository.list_sessions()
+

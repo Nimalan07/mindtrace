@@ -74,20 +74,22 @@ class DiagnosisService:
         cls,
         data_dir: Optional[Path] = None,
         llm_provider: Optional[LLMProvider] = None,
-        db_path: str = ":memory:",
+        db_path: Optional[str] = None,
     ) -> "DiagnosisService":
         """Instantiate DiagnosisService with standard default JSON catalog files."""
         base_dir = data_dir or Path("data")
         concepts_path = base_dir / "concepts" / "physics_force_motion.json"
         misconceptions_path = base_dir / "misconceptions" / "physics_force_motion.json"
         likelihoods_path = base_dir / "misconceptions" / "likelihoods.json"
+        default_db = str(base_dir / "mindtrace_sessions.db")
+        chosen_db = db_path if db_path is not None else default_db
 
         cg = ConceptGraph.load_from_json(concepts_path)
         ml = MisconceptionLibrary.load_from_json(misconceptions_path, concept_graph=cg)
         qs = ActiveQuestionSelector.load_from_json(likelihoods_path)
         re = ReasoningExtractor(provider=llm_provider or MockLLMProvider(), concept_graph=cg)
         ed = FirstErrorDetector(misconception_library=ml, concept_graph=cg)
-        repo = SQLiteSessionRepository(db_path=db_path)
+        repo = SQLiteSessionRepository(db_path=chosen_db)
 
         return cls(
             concept_graph=cg,
