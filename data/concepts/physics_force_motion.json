@@ -1,0 +1,192 @@
+{
+  "subject": "Physics",
+  "domain": "Classical Mechanics",
+  "version": "1.0.0",
+  "description": "Prerequisite concept graph for force, motion, momentum, work and energy.",
+  "concepts": [
+    {
+      "id": "velocity",
+      "name": "Velocity",
+      "topic": "Kinematics Foundation",
+      "description": "Rate of change of displacement with time, including magnitude and direction.",
+      "prerequisites": [],
+      "related_concepts": ["speed", "acceleration", "momentum"]
+    },
+    {
+      "id": "speed",
+      "name": "Speed",
+      "topic": "Kinematics Foundation",
+      "description": "Magnitude of velocity; distance travelled per unit time.",
+      "prerequisites": ["velocity"],
+      "related_concepts": ["acceleration", "kinetic_energy"]
+    },
+    {
+      "id": "time_interval",
+      "name": "Time Interval",
+      "topic": "Kinematics Foundation",
+      "description": "Elapsed time between two events.",
+      "prerequisites": [],
+      "related_concepts": ["acceleration", "power"]
+    },
+    {
+      "id": "displacement",
+      "name": "Displacement",
+      "topic": "Kinematics Foundation",
+      "description": "Vector change in position from an initial point to a final point.",
+      "prerequisites": [],
+      "related_concepts": ["velocity", "work"]
+    },
+    {
+      "id": "acceleration",
+      "name": "Acceleration",
+      "topic": "Kinematics Foundation",
+      "description": "Rate of change of velocity with respect to time.",
+      "prerequisites": ["velocity", "time_interval"],
+      "related_concepts": ["newton_second_law"]
+    },
+    {
+      "id": "mass",
+      "name": "Mass",
+      "topic": "Dynamics Foundation",
+      "description": "Physical quantity that measures inertia and appears in the equations of momentum and energy.",
+      "prerequisites": [],
+      "related_concepts": ["inertia", "newton_second_law", "momentum"]
+    },
+    {
+      "id": "inertia",
+      "name": "Inertia",
+      "topic": "Dynamics Foundation",
+      "description": "Property of matter that resists changes in its state of motion.",
+      "prerequisites": ["mass"],
+      "related_concepts": ["newton_first_law"]
+    },
+    {
+      "id": "force",
+      "name": "Force",
+      "topic": "Dynamics Foundation",
+      "description": "A push or pull resulting from an interaction between bodies.",
+      "prerequisites": [],
+      "related_concepts": ["net_force", "friction", "newton_third_law"]
+    },
+    {
+      "id": "net_force",
+      "name": "Net Force",
+      "topic": "Dynamics Foundation",
+      "description": "Vector sum of all external forces acting on a body.",
+      "prerequisites": ["force"],
+      "related_concepts": ["newton_first_law", "newton_second_law"]
+    },
+    {
+      "id": "newton_first_law",
+      "name": "Newton's First Law",
+      "topic": "Laws of Motion",
+      "description": "An object maintains its state of rest or uniform velocity when the net external force is zero.",
+      "prerequisites": ["inertia", "net_force"],
+      "related_concepts": ["newton_second_law"]
+    },
+    {
+      "id": "newton_second_law",
+      "name": "Newton's Second Law",
+      "topic": "Laws of Motion",
+      "description": "The net force on an object equals its mass multiplied by its acceleration.",
+      "prerequisites": ["mass", "net_force", "acceleration"],
+      "related_concepts": ["friction", "momentum"]
+    },
+    {
+      "id": "newton_third_law",
+      "name": "Newton's Third Law",
+      "topic": "Laws of Motion",
+      "description": "Interacting bodies exert equal-magnitude and opposite-direction forces on each other.",
+      "prerequisites": ["force"],
+      "related_concepts": ["conservation_of_momentum"]
+    },
+    {
+      "id": "friction",
+      "name": "Friction",
+      "topic": "Contact Forces",
+      "description": "Contact force that opposes relative motion or impending motion between surfaces.",
+      "prerequisites": ["force"],
+      "related_concepts": ["newton_second_law"]
+    },
+    {
+      "id": "momentum",
+      "name": "Linear Momentum",
+      "topic": "Momentum and Impulse",
+      "description": "Product of an object's mass and velocity.",
+      "prerequisites": ["mass", "velocity"],
+      "related_concepts": ["newton_second_law", "conservation_of_momentum"]
+    },
+    {
+      "id": "conservation_of_momentum",
+      "name": "Conservation of Momentum",
+      "topic": "Momentum and Impulse",
+      "description": "Total momentum of an isolated system remains constant when the net external force is zero.",
+      "prerequisites": ["momentum", "net_force"],
+      "related_concepts": ["newton_third_law"]
+    },
+    {
+      "id": "work",
+      "name": "Mechanical Work",
+      "topic": "Work and Energy",
+      "description": "Energy transferred when a force acts through a displacement.",
+      "prerequisites": ["force", "displacement"],
+      "related_concepts": ["work_energy_theorem", "power"]
+    },
+    {
+      "id": "kinetic_energy",
+      "name": "Kinetic Energy",
+      "topic": "Work and Energy",
+      "description": "Energy possessed by an object due to its motion.",
+      "prerequisites": ["mass", "speed"],
+      "related_concepts": ["work_energy_theorem", "conservation_of_energy"]
+    },
+    {
+      "id": "height",
+      "name": "Height",
+      "topic": "Work and Energy",
+      "description": "Vertical position measured relative to a chosen reference level.",
+      "prerequisites": [],
+      "related_concepts": ["potential_energy"]
+    },
+    {
+      "id": "gravitational_field_strength",
+      "name": "Gravitational Field Strength",
+      "topic": "Work and Energy",
+      "description": "Gravitational force per unit mass, commonly represented by g near Earth's surface.",
+      "prerequisites": [],
+      "related_concepts": ["potential_energy"]
+    },
+    {
+      "id": "potential_energy",
+      "name": "Gravitational Potential Energy",
+      "topic": "Work and Energy",
+      "description": "Energy associated with an object's position in a gravitational field, relative to a reference level.",
+      "prerequisites": ["mass", "height", "gravitational_field_strength"],
+      "related_concepts": ["conservation_of_energy"]
+    },
+    {
+      "id": "work_energy_theorem",
+      "name": "Work-Energy Theorem",
+      "topic": "Work and Energy",
+      "description": "Net work done on an object equals its change in kinetic energy.",
+      "prerequisites": ["work", "net_force", "kinetic_energy"],
+      "related_concepts": ["conservation_of_energy"]
+    },
+    {
+      "id": "conservation_of_energy",
+      "name": "Conservation of Mechanical Energy",
+      "topic": "Work and Energy",
+      "description": "Mechanical energy remains constant in a system when only conservative forces do work.",
+      "prerequisites": ["work_energy_theorem", "potential_energy"],
+      "related_concepts": ["kinetic_energy"]
+    },
+    {
+      "id": "power",
+      "name": "Mechanical Power",
+      "topic": "Work and Energy",
+      "description": "Rate at which work is done or energy is transferred.",
+      "prerequisites": ["work", "time_interval"],
+      "related_concepts": ["force"]
+    }
+  ]
+}
